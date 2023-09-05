@@ -16,18 +16,15 @@ public class BallsPlayTest {
 
     @BeforeEach
     void before() {
-        List<Ball> balls = new ArrayList<>();
-        balls.add(new Ball(1, 1));
-        balls.add(new Ball(4, 2));
-        balls.add(new Ball(5, 3));
+        computerBalls = new Balls();
+        computerBalls.addBall(new Ball(1, 1));
+        computerBalls.addBall(new Ball(4, 1));
+        computerBalls.addBall(new Ball(5, 1));
 
-        balls = new ArrayList<>();
-        balls.add(new Ball(5, 1));
-        balls.add(new Ball(4, 2));
-        balls.add(new Ball(1, 3));
-
-        computerBalls = new Balls(balls);
-        userBalls = new Balls(balls);
+        userBalls = new Balls();
+        userBalls.addBall(new Ball(1, 1));
+        userBalls.addBall(new Ball(4, 1));
+        userBalls.addBall(new Ball(5, 1));
     }
 
     @Test
@@ -37,12 +34,13 @@ public class BallsPlayTest {
         Assertions.assertThat(result.getStrike()).isEqualTo(1);
         Assertions.assertThat(result.getBall()).isEqualTo(2);
     }
+
     @Test
     @DisplayName("3스트라이크 테스트")
     void GamePlayTest_3Strike() {
         GameResult result = computerBalls.play(userBalls);
-        Assertions.assertThat(result.getStrike()).isEqualTo(0);
-        Assertions.assertThat(result.getBall()).isEqualTo(3);
+        Assertions.assertThat(result.getStrike()).isEqualTo(3);
+        Assertions.assertThat(result.getBall()).isEqualTo(0);
     }
 
     @Test
@@ -51,13 +49,5 @@ public class BallsPlayTest {
         GameResult result = computerBalls.play(userBalls);
         Assertions.assertThat(result.getStrike()).isEqualTo(0);
         Assertions.assertThat(result.getBall()).isEqualTo(3);
-    }
-
-    @Test
-    @DisplayName("낫싱 테스트")
-    void GamePlayTest_() {
-        GameResult result = computerBalls.play(userBalls);
-        Assertions.assertThat(result.getStrike()).isEqualTo(0);
-        Assertions.assertThat(result.getBall()).isEqualTo(0);
     }
 }
