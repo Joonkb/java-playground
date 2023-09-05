@@ -1,7 +1,10 @@
 package baseball;
 
+import lombok.Getter;
+
 import java.util.List;
 
+@Getter
 public class Balls {
     private List<Ball> balls;
 
@@ -10,7 +13,7 @@ public class Balls {
     }
 
     public BallStatus play(Ball userBall) {
-        // TODO: 리팩토링 ->
+        // TODO: 리팩토링
         BallStatus ballStatus = BallStatus.NOTHING;
         for (Ball computerBall : balls) {
             if (computerBall.equals(userBall)) {
@@ -23,8 +26,11 @@ public class Balls {
         return ballStatus;
     }
 
-    GameResult play(Balls userBalls) {
-
+    public GameResult play(Balls userBalls) {
+        GameResult result = new GameResult();
+        for (Ball ball : userBalls.getBalls()) {
+            result.make(this.play(ball));
+        }
+        return result;
     }
-
 }
