@@ -37,6 +37,13 @@ public class BallsPlayTest {
         Assertions.assertThat(result.getStrike()).isEqualTo(1);
         Assertions.assertThat(result.getBall()).isEqualTo(2);
     }
+    @Test
+    @DisplayName("3스트라이크 테스트")
+    void GamePlayTest_3Strike() {
+        GameResult result = computerBalls.play(userBalls);
+        Assertions.assertThat(result.getStrike()).isEqualTo(0);
+        Assertions.assertThat(result.getBall()).isEqualTo(3);
+    }
 
     @Test
     @DisplayName("3볼 테스트")
