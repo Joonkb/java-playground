@@ -13,9 +13,17 @@ public class Balls {
         balls = new ArrayList<>();
     }
 
+    public Balls(String userBalls) {
+        this();
+        for (int digit = 0; digit < 3; ++digit) {
+            int number = userBalls.charAt(digit) - '0';
+            balls.add(new Ball(number, digit + 1));
+        }
+    }
+
     public Balls(List<Integer> randomNumber) {
-        for (int i = 0; i < 3; i++) {
-            balls.add(new Ball(randomNumber.get(i), i + 1));
+        for (int order = 0; order < 3; order++) {
+            balls.add(new Ball(randomNumber.get(order), order + 1));
         }
     }
 

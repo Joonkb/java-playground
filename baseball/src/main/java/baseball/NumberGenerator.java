@@ -11,7 +11,7 @@ public class NumberGenerator {
         List<Integer> balls = new ArrayList<>();
         while (balls.size() < 3) {
             int num = random.nextInt(9) + 1;
-            makeBalls(balls, num);
+            makeBalls(balls, num);  // 좋은 방식은 아닌듯.
         }
         return balls;
     }

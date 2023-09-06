@@ -15,11 +15,11 @@ public class BallsTest {
 
     @BeforeEach
     void before() {
-        List<Ball> balls = new ArrayList<>();
-        balls.add(new Ball(1, 1));
-        balls.add(new Ball(4, 2));
-        balls.add(new Ball(5, 3));
-        computerBalls = new Balls(balls);
+//        List<Ball> balls = new ArrayList<>();
+//        balls.add(new Ball(1, 1));
+//        balls.add(new Ball(4, 2));
+//        balls.add(new Ball(5, 3));
+//        computerBalls = new Balls(balls);
     }
 
     @Test

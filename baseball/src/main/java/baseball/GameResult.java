@@ -12,6 +12,7 @@ public class GameResult {
         if (BallStatus.STRIKE.equals(status)) {
             incrementStrikeCount();
         }
+
         if (BallStatus.BALL.equals(status)) {
             incrementBallCount();
         }
@@ -26,7 +27,7 @@ public class GameResult {
     }
 
     public boolean isGameStop() {
-        if(getBall() == 0 && getStrike() == 0) return true;
+        if( getBall() == 0 && getStrike() == 0 ) return true;
         return false;
     }
 
