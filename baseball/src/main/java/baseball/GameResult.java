@@ -1,11 +1,17 @@
 package baseball;
 
+import baseball.ball.BallStatus;
 import lombok.Getter;
 
 @Getter
 public class GameResult {
     private int ball;
     private int strike;
+
+    public GameResult() {
+        this.ball = 0;
+        this.strike = 0;
+    }
 
     // TODO 더 간단하게 할 수 있는 코드가 있음.
     public void make(BallStatus status) {
@@ -26,9 +32,15 @@ public class GameResult {
         strike += 1;
     }
 
+    public boolean isNothing() {
+        return getBall() == 0 && getStrike() == 0;
+    }
+
     public boolean isGameStop() {
-        if( getBall() == 0 && getStrike() == 0 ) return true;
-        return false;
+        if(this.getStrike() == 3 ) {
+            return false;
+        }
+        return true;
     }
 
     @Override

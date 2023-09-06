@@ -1,4 +1,4 @@
-package baseball;
+package baseball.ball;
 
 import lombok.Getter;
 import lombok.Setter;

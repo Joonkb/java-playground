@@ -1,5 +1,7 @@
 package baseball;
 
+import baseball.ball.Balls;
+import baseball.utils.NumberGenerator;
 import baseball.view.InputView;
 import baseball.view.ResultView;
 
@@ -16,11 +18,11 @@ public class BaseBallGame {
     }
 
     private static void gamePlaying() {
-        boolean gameStopYn = true;
-        while (gameStopYn) {
-            // 컴퓨터 Balls 생성
-            Balls computerBalls = new Balls(NumberGenerator.createRandomNumber());
 
+        boolean gameStopYn   = true;
+        Balls computerBalls  = new Balls(NumberGenerator.createRandomNumber());
+
+        while (gameStopYn) {
             // 사용자 프로세스 진행
             GameResult result = playGameUserTurn(computerBalls);
 
@@ -39,8 +41,11 @@ public class BaseBallGame {
     }
 
     private static boolean validateNextGame() {
+        ResultView.getGameEndString();
         int userGameEndYn = sc.nextInt();
-        if (userGameEndYn == 2) return false;
+        if (userGameEndYn == GameStatus.EXIT.getValue()) {
+            return false;
+        }
         return true;
     }
 

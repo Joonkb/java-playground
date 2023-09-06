@@ -2,6 +2,6 @@ package baseball.view;
 
 public class InputView {
     public static void getUserInputString() {
-        System.out.print("¼ýÀÚ¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä : ");
+        System.out.print("숫자를 입력해 주세요 : ");
     }
 }

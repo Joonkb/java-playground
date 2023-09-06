@@ -10,6 +10,8 @@ public class ResultView {
         String resultStr = "";
         if(ball != 0) resultStr +=  (ball + "볼 ");
         if(strike != 0) resultStr += (strike + "스트라이크");
+        if(result.isNothing()) resultStr = "낫싱";
+
         System.out.println(resultStr);
     }
     public static void getGameEndString() {
