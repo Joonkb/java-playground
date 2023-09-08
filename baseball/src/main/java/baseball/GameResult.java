@@ -13,12 +13,11 @@ public class GameResult {
         this.strike = 0;
     }
 
-    // TODO 더 간단하게 할 수 있는 코드가 있음.
+    // TODO: 더 간단하게 할 수 있는 코드가 있을 것 같음.
     public void make(BallStatus status) {
         if (BallStatus.STRIKE.equals(status)) {
             incrementStrikeCount();
         }
-
         if (BallStatus.BALL.equals(status)) {
             incrementBallCount();
         }

@@ -28,21 +28,9 @@ public class Balls {
             balls.add(new Ball(randomNumber.get(order), order + 1));
         }
     }
-
+    
+    // TODO: 정상적으로 동작하는지 다양한 TESTCASE 확인 필요.
     public BallStatus play(Ball userBall) {
-        // TODO: 리팩토링
-//        BallStatus status = BallStatus.NOTHING;
-//        for (Ball computerBall : balls) {
-//            if (computerBall.equals(userBall)) {
-//                return BallStatus.STRIKE;
-//            }
-//            if(computerBall.play(userBall) == BallStatus.BALL){
-//                status = BallStatus.BALL;
-//            }
-//        }
-//        return status;
-
-        // TODO: stream() 사용하여 풀어볼 것!
         return balls.stream()
                 .map(ball -> ball.play(userBall))
                 .filter(status -> status != BallStatus.NOTHING)
@@ -50,10 +38,14 @@ public class Balls {
                 .orElse(BallStatus.NOTHING);
     }
 
-    public void addBall(Ball ball) {
-        balls.add(ball);
-    }
+    public void addBall(Ball ball) { balls.add(ball); }
 
+    /**
+     * 컴퓨터의 Balls와 유저의 Balls 를 비교하여
+     * GameResult를 반환한다.
+     * @param userBalls : 유저의 Balls
+     * @return GameResult
+     */
     public GameResult play(Balls userBalls) {
         GameResult result = new GameResult();
         for (Ball ball : userBalls.getBalls()) {
