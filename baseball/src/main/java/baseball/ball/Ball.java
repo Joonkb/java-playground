@@ -18,6 +18,7 @@ public class Ball {
         if(this.equals(userBall)) {
             return BallStatus.STRIKE;
         }
+
         if (this.getNumber() == userBall.getNumber() &&
             this.getPosition() != userBall.getPosition() ) {
             return BallStatus.BALL;
