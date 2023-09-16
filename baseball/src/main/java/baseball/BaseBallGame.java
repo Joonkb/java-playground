@@ -46,16 +46,13 @@ public class BaseBallGame {
     }
 
     /**
-     * 다음게임 진행여부를 검증한다.
-     * @return
+     * 다음 게임 진행여부를 검증한다.
+     * @return true: 게임을 계속 진행, false: 게임을 중단
      */
     private static boolean validateNextGame() {
         ResultView.getGameEndString();
         int userGameEndYn = sc.nextInt();
-        if (userGameEndYn == GameStatus.EXIT.getValue()) {
-            return false;
-        }
-        return true;
+        return GameStatus.EXIT.isGameEnd(userGameEndYn);
     }
 
     public static void main(String[] args) {

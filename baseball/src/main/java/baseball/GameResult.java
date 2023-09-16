@@ -8,12 +8,13 @@ public class GameResult {
     private int ball;
     private int strike;
 
+    private static final int STRIKE_OUT_VALUE = 3;
+
     public GameResult() {
         this.ball = 0;
         this.strike = 0;
     }
 
-    // TODO: 더 간단하게 할 수 있는 코드가 있을 것 같음.
     public void make(BallStatus status) {
         if (BallStatus.STRIKE.equals(status)) {
             incrementStrikeCount();
@@ -36,7 +37,7 @@ public class GameResult {
     }
 
     public boolean isGameStop() {
-        if(this.getStrike() == 3 ) {
+        if(this.getStrike() == STRIKE_OUT_VALUE ) {
             return false;
         }
         return true;

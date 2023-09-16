@@ -13,7 +13,9 @@ public class Balls {
     public Balls() {
         balls = new ArrayList<>();
     }
-
+    
+    // TODO: 사용자의 입력도 같은 생성자를 사용하도록 수정 , CONVERT 사용해서 맞춰볼것 테스트를 위함.
+    
     public Balls(String userBalls) {
         this();
         for (int digit = 0; digit < 3; ++digit) {
@@ -33,7 +35,7 @@ public class Balls {
     public BallStatus play(Ball userBall) {
         return balls.stream()
                 .map(ball -> ball.play(userBall))
-                .filter(status -> status != BallStatus.NOTHING)
+                .filter(status -> status != BallStatus.NOTHING) // TODO: Enum한테 물어보는 방식으로 수정
                 .findAny()
                 .orElse(BallStatus.NOTHING);
     }

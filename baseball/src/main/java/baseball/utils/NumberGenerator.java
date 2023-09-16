@@ -9,6 +9,7 @@ public class NumberGenerator {
     public static List<Integer> createRandomNumber() {
         Random random = new Random();
         List<Integer> balls = new ArrayList<>();
+        // TODO: BAll 한테 위임
         while (balls.size() < 3) {
             int num = random.nextInt(9) + 1;
             makeBalls(balls, num);
