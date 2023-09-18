@@ -19,4 +19,12 @@ public class Car {
         this.position += 1;
     }
 
+    public String getDescription() {
+        StringBuilder description = new StringBuilder(carName);
+        description.append(" : ");
+        for (int cnt = 1; cnt <= position; ++cnt) {
+            description.append("-");
+        }
+        return description.toString();
+    }
 }
