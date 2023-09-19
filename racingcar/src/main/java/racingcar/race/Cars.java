@@ -2,6 +2,7 @@ package racingcar.race;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -20,7 +21,10 @@ public class Cars {
         StringBuilder winners = new StringBuilder();
         int maxValue = this.getMaxPositionValue();
 
-        return null;
+        return cars.stream()
+                .filter(c -> c.getPosition() == maxValue)
+                .map(c -> c.getCarName())
+                .collect(Collectors.joining(", "));
     }
 
     // 자동차들중에서 가장 멀리간 자동차의 Position 반환한다.

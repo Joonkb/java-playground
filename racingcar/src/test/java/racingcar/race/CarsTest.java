@@ -10,7 +10,7 @@ public class CarsTest {
     @DisplayName("현재 위치정보를 기반으로 우승자를 출력한다.")
     void whoWinnerNames_우승자_2명() {
         Cars cars = new Cars();
-        cars.add(new Car("lsh", 3));
+        cars.add(new Car("lsh", 4));
         cars.add(new Car("kbj", 4));
         Assertions.assertThat(cars.getWinnerNames()).isEqualTo("lsh, kbj");
     }
