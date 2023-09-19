@@ -18,19 +18,17 @@ public class Cars {
 
     // 우승자 이름의 나열을 문자열의 형태로 반환한다.
     public String getWinnerNames() {
-        StringBuilder winners = new StringBuilder();
         int maxValue = this.getMaxPositionValue();
-
         return cars.stream()
                 .filter(c -> c.getPosition() == maxValue)
-                .map(c -> c.getCarName())
+                .map(Car::getCarName)
                 .collect(Collectors.joining(", "));
     }
 
     // 자동차들중에서 가장 멀리간 자동차의 Position 반환한다.
     public int getMaxPositionValue() {
         return cars.stream()
-                .map(c -> c.getPosition())
+                .map(Car::getPosition)
                 .max(Integer::compareTo).get();
     }
 }
