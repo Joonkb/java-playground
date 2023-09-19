@@ -15,10 +15,16 @@ public class Car {
         position = 1;
     }
 
+    public Car(String carName, int position) {
+        this.carName = carName;
+        this.position = position;
+    }
+
     public void moveForward() {
         this.position += 1;
     }
 
+    // 현재 위치정보를 기반으로 자동차이름과 : "-" 를 출력한다.
     public String getDescription() {
         StringBuilder description = new StringBuilder(carName);
         description.append(" : ");
