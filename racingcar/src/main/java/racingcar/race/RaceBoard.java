@@ -1,9 +1,7 @@
 package racingcar.race;
 
 import racingcar.utils.StringUtils;
-import view.UserView;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -30,22 +28,23 @@ public class RaceBoard {
 
         // 3. 반복 횟수만큼 자동차를 전진시킨다.
         resultDesc();
-        moveForward(repeatCount);
+        racing(repeatCount);
 
         // 4. 우승자의 이름을 나열한다.
         getClosingDesc(cars.getWinnerNames());
     }
 
-    // TODO : depth = 1 로 맞출것.
-    private static void moveForward(int repeatCount) {
-        List<Car> carList = cars.getCars();
+    private static void racing(int repeatCount) {
         for (int cnt = 1; cnt <= repeatCount; ++cnt) {
-            for (Car car : carList) {
-                if (random.nextInt() >= 4) {
-                    car.moveForward();
-                }
-            }
+            moveForward();
             cars.getCarsStatus();
+        }
+    }
+
+    private static void moveForward() {
+        List<Car> carList = cars.getCars();
+        for (Car car : carList) {
+            car.randomMove();
         }
     }
 
@@ -55,7 +54,6 @@ public class RaceBoard {
             cars.add(new Car(name));
         }
     }
-
 
     public static void main(String[] args) {
         play();
