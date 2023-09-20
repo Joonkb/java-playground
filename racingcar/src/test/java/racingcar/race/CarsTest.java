@@ -28,10 +28,10 @@ public class CarsTest {
     @DisplayName("현재 위치정보를 기반으로 가장 멀리간 자동차의 위치를 출력.")
     void getMaxPositionValue() {
         Cars cars = new Cars();
-        cars.add(new Car("lsh", 4));
-        cars.add(new Car("lsh", 4));
+        cars.add(new Car("kbj", 9));
+        cars.add(new Car("lsh", 5));
         cars.add(new Car("lky", 6));
         cars.add(new Car("shin", 7));
-        Assertions.assertThat(cars.getMaxPositionValue()).isEqualTo(7);
+        Assertions.assertThat(cars.getMaxPositionValue()).isEqualTo(9);
     }
 }

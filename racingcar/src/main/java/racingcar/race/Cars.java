@@ -1,9 +1,12 @@
 package racingcar.race;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
 public class Cars {
 
     private List<Car> cars;
@@ -25,10 +28,17 @@ public class Cars {
                 .collect(Collectors.joining(", "));
     }
 
-    // 자동차들중에서 가장 멀리간 자동차의 Position 반환한다.
+    // 자동차들 중에서 가장 멀리간 자동차의 Position 반환한다.
     public int getMaxPositionValue() {
         return cars.stream()
                 .map(Car::getPosition)
                 .max(Integer::compareTo).get();
+    }
+
+    public void getCarsStatus() {
+        for (Car car : cars) {
+            System.out.println(car.getDescription());
+        }
+        System.out.println();
     }
 }
