@@ -3,22 +3,38 @@ package racingcar.utils;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.race.Car;
+import racingcar.race.Cars;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ValidationUtilsTest {
 
     @Test
     @DisplayName("자동차 이름은 5자를 초과할 수 없음_5글자_초과")
     void validateCarName_5자_초과() {
-        String carName = "BJKing";
-        boolean exceed5CharYn = ValidationUtils.validateCarName(carName);
-        Assertions.assertThat(exceed5CharYn).isFalse();
+        List<Car> carList = new ArrayList<>();
+        carList.add(new Car("BJKing", 4));
+        carList.add(new Car("kbj", 4));
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Cars(carList);
+        });
+        Assertions.assertThat("자동차 이름은 5자를 초과할 수 없습니다.").isEqualTo(exception.getMessage());
     }
 
     @Test
-    @DisplayName("자동차 이름은 5자를 초과할 수 없음_5글자_이하")
+    @DisplayName("자동차 이름은 중복될 수 없습니다.")
     void validateCarName_5자_이하() {
-        String carName = "BJKim";
-        boolean exceed5CharYn = ValidationUtils.validateCarName(carName);
-        Assertions.assertThat(exceed5CharYn).isTrue();
+        List<Car> carList = new ArrayList<>();
+        carList.add(new Car("kbj", 4));
+        carList.add(new Car("kbj", 4));
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Cars(carList);
+        });
+        Assertions.assertThat("자동차 이름은 중복될 수 없습니다.").isEqualTo(exception.getMessage());
     }
 }
