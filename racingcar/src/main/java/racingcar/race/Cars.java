@@ -1,9 +1,6 @@
 package racingcar.race;
 
 import lombok.Getter;
-import racingcar.utils.ValidationUtils;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,10 +15,6 @@ public class Cars {
         validateCarNameLength(cars);
         validateNoneDuplicate(cars);
         this.cars = cars;
-    }
-
-    public void add(Car car) {
-        cars.add(car);
     }
 
     // 우승자 이름의 나열을 문자열의 형태로 반환한다.
@@ -46,6 +39,7 @@ public class Cars {
         }
         System.out.println();
     }
+
     public void randomMove() {
         for (Car car : cars) {
             car.randomMove();

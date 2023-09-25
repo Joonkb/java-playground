@@ -9,6 +9,7 @@ import java.util.Random;
 @Setter
 public class Car {
 
+    private static final int FLAG = 4;
     private String carName;
     private int position;
 
@@ -27,9 +28,10 @@ public class Car {
     }
 
     public void randomMove() {
-        Random random = new Random(10);
-        if(random.nextInt() >= 4) {
-            moveForward();
+        Random random = new Random();
+        int randInt = random.nextInt(10);
+        if(randInt >= FLAG) {
+            this.moveForward();
         }
     }
 

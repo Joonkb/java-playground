@@ -8,14 +8,17 @@ public class ValidationUtils {
 
     private static final int MAX_LENGTH  = 5;
 
-
     // 자동차의 이름중 5자리가 초과하는 이름이 존재하면 예외를 던진다.
     public static void validateCarNameLength(List<Car> cars) {
-        String msg = "자동차 이름은 5자를 초과할 수 없습니다.";
         for (Car car : cars) {
-            if (car.getCarName().length() > MAX_LENGTH) {
-                throw new IllegalArgumentException(msg);
-            }
+            validateCarName(car);
+        }
+    }
+
+    private static void validateCarName(Car car) {
+        String msg = "자동차 이름은 5자를 초과할 수 없습니다.";
+        if (car.getCarName().length() > MAX_LENGTH) {
+            throw new IllegalArgumentException(msg);
         }
     }
 

@@ -1,14 +1,13 @@
 package calculator;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringAddCalculator {
     public static int splitAndSum(String exp) {
 
-        if ("".equals(exp) || exp == null) {
-            return 0;
-        }
+        if (checkBlankOrNull(exp)) return 0;
 
         String[] numbers;
 
@@ -16,9 +15,7 @@ public class StringAddCalculator {
         Matcher m = Pattern.compile("//(.)\n(.*)").matcher(exp);
         if (m.find()) {
             String customDelimiter = m.group(1);
-            System.out.println("customDelimiter = " + customDelimiter);
             numbers = m.group(2).split(customDelimiter);
-            System.out.println("numbers = " + numbers);
             checkNegNumberIsIn(numbers);
             return calc(numbers);
         }
@@ -32,6 +29,13 @@ public class StringAddCalculator {
 
         // 구분자로 분리해서 계산된 합을 반환한다.
         return calc(numbers);
+    }
+
+    private static boolean checkBlankOrNull(String exp) {
+        if ("".equals(exp) || exp == null) {
+            return true;
+        }
+        return false;
     }
 
     private static int calc(String[] numbers) {

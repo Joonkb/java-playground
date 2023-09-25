@@ -12,7 +12,6 @@ import static view.UserView.*;
 public class RaceBoard {
 
     private static Cars cars;
-    private static Random random = new Random(10);
     private static Scanner sc = new Scanner(System.in);
 
     private static void play() {
@@ -49,7 +48,7 @@ public class RaceBoard {
         String[] names = StringUtils.splitByComma(input);
         List<Car> carList = new ArrayList<>();
         for (String name : names) {
-            carList.add(new Car(name, 1));
+            carList.add(new Car(name));
         }
         cars = new Cars(carList);
     }
