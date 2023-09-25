@@ -2,6 +2,7 @@ package racingcar.race;
 
 import racingcar.utils.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ import static view.UserView.*;
 
 public class RaceBoard {
 
-    private static Cars cars = new Cars();
+    private static Cars cars;
     private static Random random = new Random(10);
     private static Scanner sc = new Scanner(System.in);
 
@@ -19,7 +20,6 @@ public class RaceBoard {
         // 1. 자동차 이름을 입력받는다.
         description();
         String input = sc.next();
-
         createCars(input);
 
         // 2. 몇 회를 반복할지 입력받는다.
@@ -35,24 +35,23 @@ public class RaceBoard {
     }
 
     private static void racing(int repeatCount) {
-        for (int cnt = 1; cnt <= repeatCount; ++cnt) {
+        for (int count = 1; count <= repeatCount; ++count) {
             moveForward();
             cars.getCarsStatus();
         }
     }
 
     private static void moveForward() {
-        List<Car> carList = cars.getCars();
-        for (Car car : carList) {
-            car.randomMove();
-        }
+        cars.randomMove();
     }
 
     private static void createCars(String input) {
         String[] names = StringUtils.splitByComma(input);
+        List<Car> carList = new ArrayList<>();
         for (String name : names) {
-            cars.add(new Car(name));
+            carList.add(new Car(name, 1));
         }
+        cars = new Cars(carList);
     }
 
     public static void main(String[] args) {

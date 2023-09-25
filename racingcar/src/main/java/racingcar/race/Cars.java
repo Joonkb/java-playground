@@ -1,18 +1,23 @@
 package racingcar.race;
 
 import lombok.Getter;
+import racingcar.utils.ValidationUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.utils.ValidationUtils.*;
+
 @Getter
 public class Cars {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
-    public Cars() {
-        cars = new ArrayList<>();
+    public Cars(List<Car> cars) {
+        validateCarNameLength(cars);
+        validateNoneDuplicate(cars);
+        this.cars = cars;
     }
 
     public void add(Car car) {
@@ -40,5 +45,10 @@ public class Cars {
             System.out.println(car.getDescription());
         }
         System.out.println();
+    }
+    public void randomMove() {
+        for (Car car : cars) {
+            car.randomMove();
+        }
     }
 }
