@@ -8,7 +8,14 @@ import java.util.Objects;
 public class Position {
     private int position;
 
+    public Position() {
+        position = 1;
+    }
+
     public Position(int position) {
+        if (position < 0) {
+            throw new IllegalArgumentException("위치는 음수일 수 없습니다.");
+        }
         this.position = position;
     }
 
