@@ -1,36 +1,29 @@
-package racingcar.race;
+package racinggame.domain;
 
-import lombok.Getter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.utils.ValidationUtils.*;
-
-@Getter
 public class Cars {
 
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        validateCarNameLength(cars);
-        validateNoneDuplicate(cars);
         this.cars = cars;
     }
 
     // 우승자 이름의 나열을 문자열의 형태로 반환한다.
-    public String getWinnerNames() {
-        int maxValue = this.getMaxPositionValue();
+    public List<Car> findWinners() {
+//        Position maxPosition = this.getMaxPosition();
         return cars.stream()
-                .filter(c -> c.getPosition() == maxValue)
-                .map(Car::getCarName)
-                .collect(Collectors.joining(", "));
+//                .filter(c -> c.getPosition() == maxPosition)
+                .collect(Collectors.toList());
     }
 
     // 자동차들 중에서 가장 멀리간 자동차의 Position 반환한다.
-    public int getMaxPositionValue() {
+    // Position 객체를 반환하도록 구현 TODO: 수정
+    private Position getMaxPositionValue() {
         return cars.stream()
-                .map(Car::getPosition)
-                .max(Integer::compareTo).get();
+                .max(Position::getPosition)
     }
 
     public void getCarsStatus() {
@@ -40,9 +33,9 @@ public class Cars {
         System.out.println();
     }
 
-    public void randomMove() {
+    public void move() {
         for (Car car : cars) {
-            car.randomMove();
+            car.move(new MovingStrategyImpl());
         }
     }
 }

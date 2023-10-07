@@ -1,6 +1,8 @@
-package racingcar.race;
+package racinggame;
 
-import racingcar.utils.StringUtils;
+import racinggame.domain.Car;
+import racinggame.domain.Cars;
+import racinggame.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +10,7 @@ import java.util.Scanner;
 
 import static view.UserView.*;
 
-public class RaceBoard {
-
+public class RacingMain {
     private static Cars cars;
     private static Scanner sc = new Scanner(System.in);
 
@@ -29,7 +30,7 @@ public class RaceBoard {
         racing(repeatCount);
 
         // 4. 우승자의 이름을 나열한다.
-        getClosingDesc(cars.getWinnerNames());
+        getClosingDesc(cars.findWinners().toString());
     }
 
     private static void racing(int repeatCount) {
@@ -40,7 +41,7 @@ public class RaceBoard {
     }
 
     private static void moveForward() {
-        cars.randomMove();
+        cars.move();
     }
 
     private static void createCars(String input) {

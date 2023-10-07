@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racinggame.utils;
 
 public class StringUtils {
     public static String[] splitByComma(String input) {

@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racinggame.utils;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class StringUtilsTest {
+
     @ParameterizedTest
     @DisplayName("구분자로 문자열이 나뉘어지는지 테스트한다.")
     @CsvSource(value = {"bsy,ssh,lky:bsy:ssh:lky"}, delimiter = ':')
