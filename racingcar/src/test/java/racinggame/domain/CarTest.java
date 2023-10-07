@@ -26,7 +26,7 @@ public class CarTest {
     @DisplayName("자동차의 현재 위치를 문자열로 표현")
     void 자동차_현재_위치상태_반환() {
         Car car = new Car("KBJ", 3);
-        car.move(() -> true); // position : 4
+        car.move(() -> true);
         Assertions.assertThat(car.getDescription()).isEqualTo("KBJ : ----");
     }
 

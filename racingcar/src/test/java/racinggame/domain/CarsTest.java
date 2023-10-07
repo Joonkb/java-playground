@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class CarsTest {
 
     @Test
@@ -17,11 +19,10 @@ public class CarsTest {
         Car car1 = new Car("car1", 4);
         Car car2 = new Car("car2", 5);
         Car car3 = new Car("car3", 6);
-
         List<Car> carList = Arrays.asList(car1, car2, car3);
         Cars cars = new Cars(carList);
 
-        Assertions.assertThat(cars.findWinners()).contains(car3);
+        assertThat(cars.findWinners()).contains(car3);
     }
 
     @Test
@@ -32,12 +33,10 @@ public class CarsTest {
         Car car2 = new Car("car2", 5);
         Car car3 = new Car("car3", 6);
         Car car4 = new Car("car4", 6);
-
         List<Car> carList = Arrays.asList(car1, car2, car3, car4);
         Cars cars = new Cars(carList);
 
-        Assertions.assertThat(cars.findWinners()).contains(car3);
-        Assertions.assertThat(cars.findWinners()).contains(car4);
+        assertThat(cars.findWinners()).contains(car3);
+        assertThat(cars.findWinners()).contains(car4);
     }
-
 }
