@@ -18,15 +18,14 @@ public class RentCompany implements ReportManager {
         carList.add(car);
     }
 
+    /**
+     * ReportManager 인터페이스를 구현 
+     */
     @Override
     public String generateReport() {
-
         StringBuilder content = new StringBuilder();
         for (Car car : carList) {
-            content.append(car.getName()+ " : ")
-                    .append((int) car.getChargeQuantity())
-                    .append("리터")
-                    .append(NEWLINE);
+            content.append(car).append(NEWLINE);
         }
         return content.toString();
     }

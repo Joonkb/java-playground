@@ -37,6 +37,6 @@ public abstract class Car {
 
     @Override
     public String toString() {
-        return getName() + " : " + ((int)getChargeQuantity());
+        return getName() + " : " + ((int)getChargeQuantity()) +"리터";
     }
 }
