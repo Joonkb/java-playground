@@ -1,9 +1,10 @@
 package fuel.domain;
 
+import static fuel.domain.CarModel.AVANTE;
+
 public class Avante extends Car{
 
-    private static final String carModel = "Avante";
-    private static final int fuelEfficiency = 15;
+    private static final CarModel carModel = AVANTE;
 
     public Avante(int dist) {
         super(dist);
@@ -11,7 +12,7 @@ public class Avante extends Car{
 
     @Override
     public double getDistancePerLiter() {
-        return fuelEfficiency;
+        return carModel.getFuelEfficiency();
     }
 
     @Override
@@ -21,6 +22,6 @@ public class Avante extends Car{
 
     @Override
     public String getName() {
-        return carModel;
+        return carModel.getModelName();
     }
 }
