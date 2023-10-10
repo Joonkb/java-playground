@@ -13,7 +13,7 @@ public class RentCompanyTest {
 
     @Test
     public void report() throws Exception {
-        RentCompany company = RentCompany.create(); // factory method 사용
+        RentCompany company = RentCompany.create(); // factory method 패턴 사용
         company.addCar(new Sonata(150));
         company.addCar(new K5(260));
         company.addCar(new Sonata(120));
