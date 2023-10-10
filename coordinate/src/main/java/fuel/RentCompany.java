@@ -20,6 +20,7 @@ public class RentCompany implements ReportManager {
 
     @Override
     public String generateReport() {
+
         StringBuilder content = new StringBuilder();
         for (Car car : carList) {
             content.append(car.getName()+ " : ")

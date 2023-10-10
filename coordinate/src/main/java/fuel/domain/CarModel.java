@@ -7,14 +7,14 @@ public enum CarModel {
     K5("K5", 13);
 
     private final String modelName;
-    private final int fuelEfficiency;
+    private final double fuelEfficiency;
 
     CarModel(String name, int fuelEfficiency) {
         this.modelName = name;
         this.fuelEfficiency = fuelEfficiency;
     }
 
-    public int getFuelEfficiency() {
+    public double getFuelEfficiency() {
         return fuelEfficiency;
     }
 

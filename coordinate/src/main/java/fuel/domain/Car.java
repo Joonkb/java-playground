@@ -3,30 +3,40 @@ package fuel.domain;
 public abstract class Car {
 
     int movingDistance; // 대략적인 이동거리
+    CarModel carModel;
 
-    public Car(int dist) {
+    public Car(int dist, CarModel carModel) {
         this.movingDistance = dist;
+        this.carModel = carModel;
     }
 
     /**
      * 리터당 이동 거리. 즉, 연비
      */
-    public abstract double getDistancePerLiter();
+    public double getDistancePerLiter(){
+        return carModel.getFuelEfficiency();
+    }
 
     /**
      * 여행하려는 거리
      */
-    public abstract double getTripDistance();
+    public double getTripDistance(){
+        return this.movingDistance;
+    }
 
     /**
      * 차종의 이름
      */
-    public abstract String getName();
+    public String getName() {
+        return carModel.getModelName();
+    }
 
-    /**
-     * 주입해야할 연료량을 구한다.
-     */
     public double getChargeQuantity() {
         return getTripDistance() / getDistancePerLiter();
+    }
+
+    @Override
+    public String toString() {
+        return getName() + " : " + ((int)getChargeQuantity());
     }
 }
