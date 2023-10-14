@@ -23,6 +23,7 @@ public class Point {
     /**
      *  ######  Point 객체 비교를 위한 오버라이딩
      */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -30,6 +31,7 @@ public class Point {
         Point point = (Point) o;
         return x == point.x && y == point.y;
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
