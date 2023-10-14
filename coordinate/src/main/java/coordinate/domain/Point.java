@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import java.util.Objects;
+
 public class Point {
 
     public static final int MAX_VALUE = 24;
@@ -18,8 +20,19 @@ public class Point {
         }
     }
 
+    /**
+     * ***** Point 비교를 위한 오버라이딩
+     */
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return x == point.x && y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }
