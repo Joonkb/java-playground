@@ -14,4 +14,5 @@ public class ParsingUtilsTest {
         Point parsed = ParsingUtils.parse("(12,23)");
         Assertions.assertThat(p).isEqualTo(parsed);
     }
+
 }

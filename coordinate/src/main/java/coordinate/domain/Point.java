@@ -16,12 +16,12 @@ public class Point {
 
     private void validateInputValue(int x, int y) {
         if (x < 0 || x > MAX_VALUE || y < 0 || y > MAX_VALUE) {
-            throw new IllegalStateException("X, Y좌표 모두 최대 24까지만 입력할 수 있습니다.");
+            throw new IllegalArgumentException("X, Y좌표 모두 최대 24까지만 입력할 수 있습니다.");
         }
     }
 
     /**
-     * ***** Point 비교를 위한 오버라이딩
+     *  ######  Point 객체 비교를 위한 오버라이딩
      */
     @Override
     public boolean equals(Object o) {
@@ -30,7 +30,6 @@ public class Point {
         Point point = (Point) o;
         return x == point.x && y == point.y;
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
