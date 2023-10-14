@@ -11,4 +11,7 @@ public class Points {
         this.points = points;
     }
 
+    public List<Point> getPoints() {
+        return points;
+    }
 }

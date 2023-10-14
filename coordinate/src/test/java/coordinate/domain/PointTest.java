@@ -20,5 +20,4 @@ public class PointTest {
         assertThatThrownBy(() -> new Point(3, 26))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-
 }
