@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Point {
 
     public static final int MAX_VALUE = 24;
+    
     private int x;
     private int y;
 
@@ -14,6 +15,12 @@ public class Point {
         this.y = y;
     }
 
+    private void validateInputValue(int x, int y) {
+        if (x < 0 || x > MAX_VALUE || y < 0 || y > MAX_VALUE) {
+            throw new IllegalArgumentException("X, Y좌표 모두 최대 24까지만 입력할 수 있습니다.");
+        }
+    }
+
     public int getX() {
         return x;
     }
@@ -21,16 +28,6 @@ public class Point {
     public int getY() {
         return y;
     }
-
-    private void validateInputValue(int x, int y) {
-        if (x < 0 || x > MAX_VALUE || y < 0 || y > MAX_VALUE) {
-            throw new IllegalArgumentException("X, Y좌표 모두 최대 24까지만 입력할 수 있습니다.");
-        }
-    }
-
-    /**
-     *  ######  Point 객체 비교를 위한 오버라이딩
-     */
 
     @Override
     public boolean equals(Object o) {

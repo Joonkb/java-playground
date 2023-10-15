@@ -22,6 +22,10 @@ public class Line implements Shape {
         return points;
     }
 
+    public List<Point> getPointList() {
+        return points.getPoints();
+    }
+
     @Override
     public Double getArea() {
         return PointCalculator.getArea(this);

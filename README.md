@@ -37,7 +37,25 @@
 5. Input View [UserView.class]
 - 입력에 해당하는 view를 출력한다.
 
+## 좌표계산기 (coordinate)
 
+### 기능목록
+
+## 좌표계산기 (선 길이)
+
+---
+
+### 기능목록
+
+1. ~~좌표 정보를 파싱한다. [ParsingUtils.class]~~
+- 괄호 수 만큼 반복해서 좌표 정보를 파싱한다.
+2. ~~X값, Y 을 검증한다. [Point.class]~~
+  - X, Y 좌표 모두 최대 24까지만 입력할 수 있다.
+3. Point 간의 면적을 구한다. 각각의 클래스에서 처리하도록 한다. (Shape를 implement 한다.)
+   - 두 점 사이의 거리를 계산한다. [Line.class]
+   - 사각형의 면적을 구한다 [Square.class]
+   - 삼각형의 면적을 구한다. [Triangle.class]
+4. 좌표를 출력한다.
 
 
 
