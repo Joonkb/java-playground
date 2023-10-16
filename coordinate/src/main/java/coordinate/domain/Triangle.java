@@ -1,6 +1,6 @@
 package coordinate.domain;
 
-public class Triangle implements Shape {
+public class Triangle extends Shape {
 
     @Override
     public Double getArea() {
