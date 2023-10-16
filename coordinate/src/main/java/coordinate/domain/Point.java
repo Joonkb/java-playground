@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Point {
 
-    public static final int MAX_VALUE = 24;
+    private static final int MAX_VALUE = 24;
     
     private int x;
     private int y;

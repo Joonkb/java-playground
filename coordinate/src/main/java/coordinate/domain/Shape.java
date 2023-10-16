@@ -23,8 +23,8 @@ public abstract class Shape {
     }
 
     public List<Point> getPointList() {
-        return this.getPointList();
+        return points.getPoints();
     }
 
-    abstract Double getArea();
+    public abstract Double getArea();
 }

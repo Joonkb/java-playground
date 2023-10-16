@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import coordinate.utils.PointCalculator;
+
 import java.util.List;
 
 public class Triangle extends Shape {
@@ -14,6 +16,6 @@ public class Triangle extends Shape {
 
     @Override
     public Double getArea() {
-        return null;
+        return PointCalculator.getArea(this);
     }
 }
