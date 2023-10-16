@@ -6,24 +6,12 @@ import java.util.List;
 
 public class Line extends Shape {
 
-    // 굳이 일급컬렉션인 Points 클래스를 멤버변수로??
-    // List<Point>를 멤버변수로 하면 안되나??
-    private Points points;
-
     public Line(Points points) {
-        this.points = points;
+        super(points);
     }
 
     public Line(List<Point> pointList) {
-        points = new Points(pointList);
-    }
-
-    public Points getPoints() {
-        return points;
-    }
-
-    public List<Point> getPointList() {
-        return points.getPoints();
+        super(new Points(pointList));
     }
 
     @Override
