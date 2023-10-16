@@ -39,11 +39,6 @@
 
 ## 좌표계산기 (coordinate)
 
-### 기능목록
-
-## 좌표계산기 (선 길이)
-
----
 
 ### 기능목록
 
@@ -51,11 +46,19 @@
    - 괄호 수 만큼 반복해서 좌표 정보를 파싱한다.
 2. ~~X값, Y 을 검증한다. [Point.class]~~
    - X, Y 좌표 모두 최대 24까지만 입력할 수 있다.
-3. Point 간의 면적을 구한다. 각각의 클래스에서 처리하도록 한다. (Shape를 implement 한다.)
+3. Point 간의 면적을 구한다. 각각의 클래스에서 처리하도록 한다. (Shape를 extends 한다.)
    - 두 점 사이의 거리를 계산한다. [Line.class]
    - 사각형의 면적을 구한다 [Square.class]
    - 삼각형의 면적을 구한다. [Triangle.class]
 4. 좌표를 출력한다.
+
+### 고민흔적
+
+1. Shape이라는 추상화를 interface로 정의할 것인지 아니면, abstract class로 정의할 것인지 고민
+   1. < Line Square Traingle > 클래스에서 Points 를 관리하는것이 아닌 Shape 부모에서 관리하기 위해서 interface에서
+   abstract class로 변경
+   
+ 
 
 
 
