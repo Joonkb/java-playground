@@ -51,12 +51,15 @@
    - 사각형의 면적을 구한다 [Square.class]
    - 삼각형의 면적을 구한다. [Triangle.class]
 4. 좌표를 출력한다.
+   - 좌표를 배열의 인덱스로 변환하여 2중 반복문으로 무식하게 출력한다.
 
 ### 고민흔적
 
 1. Shape이라는 추상화를 interface로 정의할 것인지 아니면, abstract class로 정의할 것인지 고민
-   1. < Line Square Traingle > 클래스에서 Points 를 관리하는것이 아닌 Shape 부모에서 관리하기 위해서 interface에서
+   - < Line Square Traingle > 클래스에서 Points 를 관리하는것이 아닌 Shape 부모에서 관리하기 위해서 interface에서
    abstract class로 변경
+2. 좌표의 출력을 어떻게 처리해야 할지?
+   - 아이디어1 : 가장 무식하게 2중반복문으로 출력한다 이때 좌표를 배열의 인덱스로 치환하는 과정이 필요하다.
    
  
 
