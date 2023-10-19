@@ -9,40 +9,62 @@ import java.util.List;
 
 public class DrawView {
 
+    public static final int MAX_VALUE = 24;
+
     public static void drawCoordinate(Shape shape) {
-        char[][] coordinate =  convertToArrayIndex(shape);
 
-        for (int i = 24; i > 0; i--) {
-            if (i % 2 == 0) System.out.printf("%2d", i);
-            else System.out.printf("%2s", " ");
-            System.out.printf("|");
-            for (int j = 0; j <= 24; j++) {
-                System.out.printf("%3c", coordinate[i][j]);
-            }
-            System.out.println();
+        // 좌표를 배열의 인덱스로 변환한다.
+        char[][] coordinate = convertToArrayIndex(shape);
+        for (int i = MAX_VALUE; i > 0; i--) {
+            drawYaxis(i);                        // Y축과 눈금(숫자)을 표시한다.
+            drawPoint(coordinate[i]);            // 좌표평면 위의 점을 표시한다.
         }
+        drawXaxis();                             // X축과 눈금 및 숫자를 표시한다.
+    }
 
-        System.out.printf("%3s", "+");
-        for (int i = 0; i <= 24; i++) {
-            System.out.printf("%2s", "---");
+    /**
+     * 좌표평면 위의 점을 그린다.
+     */
+    private static void drawPoint(char[] coordinate) {
+        for (int j = 0; j <= MAX_VALUE; j++) {
+            System.out.printf("%3c", coordinate[j]);
         }
         System.out.println();
-        for (int i = 0; i <= 24; i++) {
+    }
+
+    /**
+     * Y축 및 눈금(숫자)을 그린다.
+     */
+    private static void drawYaxis(int i) {
+        if (i % 2 == 0) System.out.printf("%2d", i);
+        else System.out.printf("%2s", " ");
+        System.out.printf("|");
+    }
+
+    /**
+     * X축 및 눈금(숫자)을 그린다.
+     */
+    private static void drawXaxis() {
+        System.out.printf("%3s", "+");
+        for (int i = 0; i <= MAX_VALUE; i++) {
+            System.out.printf("%3s", "___");
+        }
+
+        System.out.println();
+        for (int i = 0; i <= MAX_VALUE; i++) {
             System.out.printf("%3d", i);
         }
     }
 
     /**
-     *  좌표평면을 좌표를 배열의 index로 변환하는 과정을 거친다.
+     *  좌표를 배열의 index로 변환하는 과정을 거친다.
      */
     private static char[][] convertToArrayIndex(Shape shape) {
-
         List<Point> pointList = shape.getPointList();
 
         // 좌표평면을 배열의 index로 변환하는 과정을 거친다.
-        char[][] coordinate = new char[25][25];
-        for(int i = 0; i < 24; i++) Arrays.fill(coordinate[i], ' ');
-
+        char[][] coordinate = new char[MAX_VALUE + 1][MAX_VALUE + 1];
+        for(int i = 0; i < MAX_VALUE; i++) Arrays.fill(coordinate[i], ' ');
         for (Point p : pointList) {
             int ix = 25 - p.getY();
             int iy = p.getX();
