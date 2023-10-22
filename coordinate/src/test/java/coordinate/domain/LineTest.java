@@ -16,7 +16,7 @@ public class LineTest {
         Point p1 = new Point(10, 10);
         Point p2 = new Point(14, 15);
         Line line = new Line(Arrays.asList(p1, p2));
-        Assertions.assertThat(line.getArea()).isEqualTo(6.403, Offset.offset(0.00099));
+        Assertions.assertThat(line.calculateArea()).isEqualTo(6.403, Offset.offset(0.00099));
     }
 
     @Test
@@ -25,6 +25,6 @@ public class LineTest {
         Point p1 = new Point(0, 0);
         Point p2 = new Point(1, 1);
         Line line = new Line(Arrays.asList(p1, p2));
-        Assertions.assertThat(line.getArea()).isEqualTo(1.414, Offset.offset(0.00099));
+        Assertions.assertThat(line.calculateArea()).isEqualTo(1.414, Offset.offset(0.00099));
     }
 }

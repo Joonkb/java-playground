@@ -15,7 +15,7 @@ public class Square extends Shape {
     }
 
     @Override
-    public Double getArea() {
-        return PointCalculator.getArea(this);
+    public Double calculateArea() {
+        return PointCalculator.calculateArea(this);
     }
 }

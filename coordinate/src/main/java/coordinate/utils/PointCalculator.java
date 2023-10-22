@@ -11,7 +11,7 @@ public class PointCalculator {
     /**
      * 선의 길이를 반환한다.
      */
-    public static double getArea(Line line) {
+    public static double calculateArea(Line line) {
         List<Point> pointList =line.getPointList();
         Point p1 = pointList.get(0);
         Point p2 = pointList.get(1);
@@ -22,7 +22,7 @@ public class PointCalculator {
     /**
      * 사각형의 넓이를 반환한다.
      */
-    public static double getArea(Square square) {
+    public static double calculateArea(Square square) {
 
         List<Point> pointList = square.getPoints().getPoints();
         int maxX = pointList.stream().map(Point::getX).max(Integer::compareTo).get();
@@ -36,7 +36,7 @@ public class PointCalculator {
     /**
      * 삼각형의 넓이를 반환한다.
      */
-    public static double getArea(Triangle line) {
+    public static double calculateArea(Triangle line) {
 
         List<Point> pointList = line.getPoints().getPoints();
         Point p0 = pointList.get(0);
@@ -47,9 +47,9 @@ public class PointCalculator {
         Shape l1 = new Line(Arrays.asList(p1, p2));
         Shape l2 = new Line(Arrays.asList(p2, p0));
 
-        double a = l0.getArea();
-        double b = l1.getArea();
-        double c = l2.getArea();
+        double a = l0.calculateArea();
+        double b = l1.calculateArea();
+        double c = l2.calculateArea();
 
         double s = (a + b + c) / 2;
         

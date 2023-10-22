@@ -19,6 +19,6 @@ public class TriangleTest {
         Point p2 = new Point(20, 8);
 
         Shape triangle = new Triangle(Arrays.asList(p0, p1, p2));
-        assertThat(triangle.getArea()).isEqualTo(29.0, Offset.offset(0.00099));
+        assertThat(triangle.calculateArea()).isEqualTo(29.0, Offset.offset(0.00099));
     }
 }

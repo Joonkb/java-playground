@@ -18,7 +18,7 @@ public class SquareTest {
         Point p3 = new Point(10, 18);
 
         Shape square = new Square(Arrays.asList(p0, p1, p2, p3));
-        Assertions.assertThat(square.getArea()).isEqualTo(96, Offset.offset(0.00099));
+        Assertions.assertThat(square.calculateArea()).isEqualTo(96, Offset.offset(0.00099));
     }
 
 }

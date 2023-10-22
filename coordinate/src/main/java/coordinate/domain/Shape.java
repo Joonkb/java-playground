@@ -26,5 +26,5 @@ public abstract class Shape {
         return points.getPoints();
     }
 
-    public abstract Double getArea();
+    public abstract Double calculateArea();
 }
