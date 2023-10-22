@@ -18,4 +18,9 @@ public class Triangle extends Shape {
     public Double calculateArea() {
         return PointCalculator.calculateArea(this);
     }
+
+    @Override
+    public String toString() {
+        return String.format("삼각형의 넓이는 %.1f",  this.calculateArea());
+    }
 }

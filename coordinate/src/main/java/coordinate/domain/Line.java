@@ -18,4 +18,9 @@ public class Line extends Shape {
     public Double calculateArea() {
         return PointCalculator.calculateArea(this);
     }
+
+    @Override
+    public String toString() {
+        return String.format("두 점 사이 거리는 %f", this.calculateArea());
+    }
 }

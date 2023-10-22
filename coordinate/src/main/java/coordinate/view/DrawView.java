@@ -16,10 +16,19 @@ public class DrawView {
         // 좌표를 배열의 인덱스로 변환한다.
         char[][] coordinate = convertToArrayIndex(shape);
         for (int i = MAX_VALUE; i > 0; i--) {
-            drawYaxis(i);                        // Y축과 눈금(숫자)을 표시한다.
-            drawPoint(coordinate[i]);            // 좌표평면 위의 점을 표시한다.
+            drawYaxis(i);               // Y축과 눈금(숫자)을 표시한다.
+            drawPoint(coordinate[i]);   // 좌표평면 위의 점을 표시한다.
         }
-        drawXaxis();                             // X축과 눈금 및 숫자를 표시한다.
+        drawXaxis(); // X축과 눈금 및 숫자를 표시한다.
+    }
+
+    /**
+     * Y축 및 눈금(숫자)을 그린다.
+     */
+    private static void drawYaxis(int i) {
+        if (i % 2 == 0) System.out.printf("%2d", i);
+        else System.out.printf("%2s", " ");
+        System.out.printf("|");
     }
 
     /**
@@ -30,15 +39,6 @@ public class DrawView {
             System.out.printf("%3c", coordinate[j]);
         }
         System.out.println();
-    }
-
-    /**
-     * Y축 및 눈금(숫자)을 그린다.
-     */
-    private static void drawYaxis(int i) {
-        if (i % 2 == 0) System.out.printf("%2d", i);
-        else System.out.printf("%2s", " ");
-        System.out.printf("|");
     }
 
     /**
@@ -54,6 +54,7 @@ public class DrawView {
         for (int i = 0; i <= MAX_VALUE; i++) {
             System.out.printf("%3d", i);
         }
+        System.out.println();
     }
 
     /**
@@ -72,5 +73,4 @@ public class DrawView {
         }
         return coordinate;
     }
-
 }

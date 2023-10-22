@@ -18,4 +18,8 @@ public class Square extends Shape {
     public Double calculateArea() {
         return PointCalculator.calculateArea(this);
     }
+    @Override
+    public String toString() {
+        return String.format("사각형의 넓이는 %.0f", this.calculateArea());
+    }
 }

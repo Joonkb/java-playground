@@ -2,19 +2,13 @@ package coordinate.domain;
 
 import java.util.List;
 
-/**
- * 추상화를 할때 이것을 interface로 추상화 해야할지,
- *                      아니면 abstract로 추상화를 해야할지 고민이 됨..
- *
- * 처음에는 interface로 정의하였으나, 공통적으로 points를 관리하기 위해 abstract 추상클래스로 변경
- */
 public abstract class Shape {
 
-    // 굳이 일급컬렉션인 Points 클래스를 멤버변수로??
-    // List<Point>를 멤버변수로 하면 안되나??
-    protected Points points;
+    protected Points points; // 일급컬렉션
+    protected ShapeEnum type;
 
     public Shape(Points points) {
+        type = getTypeByPoints(points);
         this.points = points;
     }
 
@@ -24,6 +18,21 @@ public abstract class Shape {
 
     public List<Point> getPointList() {
         return points.getPoints();
+    }
+
+    public ShapeEnum getType() {
+        return type;
+    }
+
+    private ShapeEnum getTypeByPoints(Points points) {
+        int pointCnt = points.getPoints().size();
+        if (pointCnt == 2) {
+            return ShapeEnum.LINE;
+        }
+        if (pointCnt == 3) {
+            return ShapeEnum.TRIANGLE;
+        }
+        return ShapeEnum.SQUARE;
     }
 
     public abstract Double calculateArea();
