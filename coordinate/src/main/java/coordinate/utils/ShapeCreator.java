@@ -16,7 +16,7 @@ public class ShapeCreator {
         return new Triangle(pointList);
     }
 
-    // 매개변수로 입력받은 List<Point>를 가지고 type을 반환한다.
+    // List<Point>를 이용하여 ShapeEnum을 반환
     private static ShapeEnum getShapeType(List<Point> pointList) {
         int pointCnt = pointList.size();
         if (pointCnt == 2) {

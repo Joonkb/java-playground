@@ -26,7 +26,7 @@ public class CoordinateMain {
     }
 
     private static void play() {
-        // 팩토리 메서드 패턴 적용 (팩토리에서 Shape을 구현한 클래스 인스턴스 반환).
+        // Factory method Pattern 적용
         Shape shape = ShapeCreator.createShape(parse(getInput()));
         DrawView.drawCoordinate(shape);
         ResultView.printCalculatedArea(shape);

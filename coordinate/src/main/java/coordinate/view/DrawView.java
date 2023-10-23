@@ -12,14 +12,14 @@ public class DrawView {
     public static final int MAX_VALUE = 24;
 
     public static void drawCoordinate(Shape shape) {
-
         // 좌표를 배열의 인덱스로 변환한다.
         char[][] coordinate = convertToArrayIndex(shape);
         for (int i = MAX_VALUE; i > 0; i--) {
-            drawYaxis(i);               // Y축과 눈금(숫자)을 표시한다.
-            drawPoint(coordinate[i]);   // 좌표평면 위의 점을 표시한다.
+            drawYaxis(i);              // Y축과 눈금(숫자)을 표시한다.
+            drawPoint(coordinate[i]);  // 좌표평면 위의 점을 표시한다.
         }
-        drawXaxis(); // X축과 눈금 및 숫자를 표시한다.
+        // X축과 눈금을 표시한다.
+        drawXaxis();
     }
 
     /**

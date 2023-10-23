@@ -4,8 +4,11 @@ import java.util.List;
 
 public abstract class Shape {
 
-    protected Points points; // 일급컬렉션
+    public static final int TWO_POINTS   = 2;
+    public static final int THREE_POINTS = 3;
+
     protected ShapeEnum type;
+    protected Points points; // 일급컬렉션
 
     public Shape(Points points) {
         type = getTypeByPoints(points);
@@ -26,10 +29,10 @@ public abstract class Shape {
 
     private ShapeEnum getTypeByPoints(Points points) {
         int pointCnt = points.getPoints().size();
-        if (pointCnt == 2) {
+        if (pointCnt == TWO_POINTS) {
             return ShapeEnum.LINE;
         }
-        if (pointCnt == 3) {
+        if (pointCnt == THREE_POINTS) {
             return ShapeEnum.TRIANGLE;
         }
         return ShapeEnum.SQUARE;
