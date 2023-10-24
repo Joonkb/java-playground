@@ -15,15 +15,16 @@ public class ParsingUtils {
     public static List<Point> parse(String input) {
         List<Point> points = new ArrayList<>();
         for (String xy : input.split("-")) {
-            Matcher matcher = pattern.matcher(xy);
-            if (matcher.matches()) {
-                points.add(createPoint(matcher));
-            }
+            points.add(createPoint(xy));
         }
         return points;
     }
 
-    private static Point createPoint(Matcher matcher) {
-        return new Point(Integer.parseInt(matcher.group(1)), Integer.parseInt(matcher.group(2)));
+    private static Point createPoint(String xy) {
+        Matcher matcher = pattern.matcher(xy);
+        if (matcher.matches()) {
+            return new Point(Integer.parseInt(matcher.group(1)), Integer.parseInt(matcher.group(2)));
+        }
+        throw new IllegalArgumentException("올바른 좌표 형식이 아닙니다.");
     }
 }
