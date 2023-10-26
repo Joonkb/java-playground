@@ -8,6 +8,7 @@ public abstract class Shape {
     public static final int THREE_POINTS = 3;
 
     protected ShapeEnum type;
+
     protected Points points; // 일급컬렉션
 
     public Shape(Points points) {

@@ -2,14 +2,14 @@ package coordinate.domain;
 
 public enum ShapeEnum {
 
-    LINE("Line"),
-    SQUARE("Square"),
-    TRIANGLE("Triangle");
+    LINE(2),
+    SQUARE(3),
+    TRIANGLE(4);
 
-    private String type;
+    private int points;
 
-    ShapeEnum(String type) {
-        this.type = type;
+    ShapeEnum(int points) {
+        this.points = points;
     }
 
 }
