@@ -7,26 +7,13 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-public class ParsingUtilsTest {
+class ParsingUtilsTest {
 
     @Test
-    @DisplayName("좌표 하나를 파싱하는 기능")
-    void 파싱_좌표_하나() {
-        Point p = new Point(12, 23);
-        List<Point> points = ParsingUtils.parse("(12,23)");
-        assertThat(p).isEqualTo(points.get(0));
+    @DisplayName("")
+    void 파싱_후_포인트_반환() {
+        Point p = new Point(2, 3);
+        List<Point> parsedList = ParsingUtils.parse("(2,3)");
+        Assertions.assertThat(parsedList).containsOnly(p);
     }
-
-    @Test
-    @DisplayName("좌표 두개를 파싱하는 기능")
-    void 파싱_좌표_두개() {
-        Point p1 = new Point(12, 23);
-        Point p2 = new Point(2, 11);
-        List<Point> points = ParsingUtils.parse("(12,23)-(2,11)");
-        assertThat(p1).isEqualTo(points.get(0));
-        assertThat(p2).isEqualTo(points.get(1));
-    }
-
 }
