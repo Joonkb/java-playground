@@ -8,7 +8,7 @@ public enum FigureType {
     TRIANGLE,
     RECTANGLE;
 
-    public FigureType getType(List<Point> pointList) {
+    public static FigureType getType(List<Point> pointList) {
         if (pointList.size() == 2) {
             return FigureType.LINE;
         }
@@ -18,7 +18,7 @@ public enum FigureType {
         if (pointList.size() == 4) {
             return RECTANGLE;
         }
-        throw new IllegalArgumentException("사용할 수 없는 도형입니다.");
+        throw new IllegalArgumentException("정의되지 않은 도형입니다.");
     }
 
 }
