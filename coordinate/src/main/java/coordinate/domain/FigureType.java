@@ -3,7 +3,6 @@ package coordinate.domain;
 import java.util.List;
 
 public enum FigureType {
-
     LINE,
     TRIANGLE,
     RECTANGLE;
@@ -20,5 +19,4 @@ public enum FigureType {
         }
         throw new IllegalArgumentException("정의되지 않은 도형입니다.");
     }
-
 }
