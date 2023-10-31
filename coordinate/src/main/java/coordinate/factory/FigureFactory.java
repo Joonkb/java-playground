@@ -17,4 +17,8 @@ public class FigureFactory {
         figureMap.put(FigureType.RECTANGLE, new LineCreator());
     }
 
+    public Figure createFigure(List<Point> points) {
+        FigureType figureType = FigureType.getType(points);
+        return figureMap.get(figureMap).create(points);
+    }
 }
