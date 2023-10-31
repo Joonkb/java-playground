@@ -3,9 +3,19 @@ package coordinate.domain;
 import java.util.List;
 
 public enum FigureType {
-    LINE,
-    TRIANGLE,
-    RECTANGLE;
+    LINE(2),
+    TRIANGLE(3),
+    RECTANGLE(4);
+
+    private int numberOfPoint;
+
+    FigureType(int numberOfPoint) {
+        this.numberOfPoint = numberOfPoint;
+    }
+
+    public int getNumberOfPoint() {
+        return numberOfPoint;
+    }
 
     public static FigureType getType(List<Point> pointList) {
         if (pointList.size() == 2) {
