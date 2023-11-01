@@ -19,7 +19,7 @@ public enum FigureType {
 
     public static FigureType getType(List<Point> pointList) {
         if (pointList.size() == 2) {
-            return FigureType.LINE;
+            return LINE;
         }
         if (pointList.size() == 3) {
             return TRIANGLE;

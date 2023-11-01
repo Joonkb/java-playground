@@ -12,5 +12,4 @@ public abstract class Figure {
     public List<Point> getPoints() {
         return points;
     }
-
 }

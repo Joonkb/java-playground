@@ -8,17 +8,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static coordinate.domain.FigureType.*;
+
 public class FigureFactory {
 
     private static Map<FigureType, FigureCreator> figureMap = new HashMap<>();
     static {
-        figureMap.put(FigureType.LINE, new LineCreator());
-        figureMap.put(FigureType.TRIANGLE, new LineCreator());
-        figureMap.put(FigureType.RECTANGLE, new LineCreator());
+        // TODO: 익명클래스로 구현하면, 구상클래스(Line, Triangle, ..) 안만들어도 될 것 같음
+        figureMap.put(LINE, new LineCreator());
+        figureMap.put(TRIANGLE, new TriangleCreator());
+        figureMap.put(RECTANGLE, new RectangleCreator());
     }
 
-    public Figure createFigure(List<Point> points) {
+    public static Figure createFigure(List<Point> points) {
         FigureType figureType = FigureType.getType(points);
-        return figureMap.get(figureMap).create(points);
+        return figureMap.get(figureType).create(points);
     }
 }
