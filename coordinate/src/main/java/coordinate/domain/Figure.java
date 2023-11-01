@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import coordinate.utils.PointCalculator;
+
 import java.util.List;
 
 public abstract class Figure {
@@ -12,4 +14,6 @@ public abstract class Figure {
     public List<Point> getPoints() {
         return points;
     }
+
+    public abstract Double calculateArea();
 }
