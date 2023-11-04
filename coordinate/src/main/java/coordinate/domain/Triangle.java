@@ -4,10 +4,9 @@ import coordinate.utils.PointCalculator;
 
 import java.util.List;
 
-public class Triangle extends Shape {
-
-    public Triangle(List<Point> pointList) {
-        super(new Points(pointList));
+public class Triangle extends Figure {
+    public Triangle(List<Point> points) {
+        super(points);
     }
 
     @Override

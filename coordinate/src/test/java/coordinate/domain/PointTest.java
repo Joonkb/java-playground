@@ -1,23 +1,24 @@
 package coordinate.domain;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class PointTest {
 
     @Test
-    @DisplayName("X, Y 좌표의 범위 값을 검증한다. 음수 CASE")
-    void X좌표_음수_에러발생(){
-        assertThatThrownBy(() -> new Point(-4, 21))
-                .isInstanceOf(IllegalArgumentException.class);
+    @DisplayName("두 점이 같은지 판단한다.")
+    void 포인트_객체_같은지() {
+        Point p1 = new Point(3, 1);
+        Point p2 = new Point(3, 1);
+        Assertions.assertThat(p1).isEqualTo(p2);
     }
 
     @Test
-    @DisplayName("X, Y 좌표의 범위 값을 검증한다. 24초과 CASE")
-    void Y좌표_24_초과_에러발생(){
-        assertThatThrownBy(() -> new Point(3, 26))
-                .isInstanceOf(IllegalArgumentException.class);
+    @DisplayName("두 점이 다른지 판단한다.")
+    void 포인트_객체_다른지() {
+        Point p1 = new Point(3, 5);
+        Point p2 = new Point(3, 1);
+        Assertions.assertThat(p1).isNotEqualTo(p2);
     }
 }

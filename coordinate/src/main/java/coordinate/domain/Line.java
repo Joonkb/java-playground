@@ -4,10 +4,9 @@ import coordinate.utils.PointCalculator;
 
 import java.util.List;
 
-public class Line extends Shape {
-
-    public Line(List<Point> pointList) {
-        super(new Points(pointList));
+public class Line extends Figure {
+    public Line(List<Point> points) {
+        super(points);
     }
 
     @Override

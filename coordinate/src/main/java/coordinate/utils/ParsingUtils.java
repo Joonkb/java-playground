@@ -9,15 +9,15 @@ import java.util.regex.Pattern;
 
 public class ParsingUtils {
 
-    private static final Pattern pattern = Pattern.compile("\\((\\d+),(\\d+)\\)");
+    private static final Pattern pattern = Pattern.compile("\\((\\d+),(\\d+)\\)"); // 좌표를 추출하기 위한 정규표현식.
+    private static final String DELIMITER = "-";
 
-    // List<Point>를 반환한다.
-    public static List<Point> parse(String input) {
-        List<Point> points = new ArrayList<>();
-        for (String xy : input.split("-")) {
-            points.add(createPoint(xy));
+    public static List<Point> parse(String s) {
+        List<Point> pointList = new ArrayList<>();
+        for (String xy : s.split(DELIMITER)) {
+            pointList.add(createPoint(xy));
         }
-        return points;
+        return pointList;
     }
 
     private static Point createPoint(String xy) {

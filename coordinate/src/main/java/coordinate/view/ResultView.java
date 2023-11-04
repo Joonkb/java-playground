@@ -1,9 +1,9 @@
 package coordinate.view;
 
-import coordinate.domain.Shape;
+import coordinate.domain.Figure;
 
 public class ResultView {
-    public static void printCalculatedArea(Shape shape) {
+    public static void printCalculatedArea(Figure shape) {
         System.out.print(shape);
     }
 }
