@@ -14,7 +14,6 @@ public class FigureFactory {
 
     private static Map<FigureType, FigureCreator> figureMap = new HashMap<>();
     static {
-        // TODO: 익명클래스로 구현하면, 구상클래스(Line, Triangle, ..) 안만들어도 될 것 같음
         figureMap.put(LINE, new LineCreator());
         figureMap.put(TRIANGLE, new TriangleCreator());
         figureMap.put(RECTANGLE, new RectangleCreator());
