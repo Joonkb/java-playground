@@ -26,8 +26,10 @@ public class Lambda {
         }).start();
     }
 
-    public static int sumAll(List<Integer> numbers) {
-        return numbers.stream().mapToInt(Integer::intValue).sum();
+    public static int sumAll(List<Integer> numbers, Conditional c ) {
+        return numbers.stream()
+                .filter(num -> c.test(num))
+                .mapToInt(Integer::intValue).sum();
     }
 
     public static int sumAllEven(List<Integer> numbers) {
