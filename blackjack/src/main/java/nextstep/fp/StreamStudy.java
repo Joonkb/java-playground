@@ -30,9 +30,10 @@ public class StreamStudy {
 
         // 상위 100개만 어떻게 추출?
         words.stream().filter(w -> w.length() > 12)
-                .map(s -> s.toLowerCase())
                 .sorted()
                 .distinct()
+                .limit(100)
+                .map(s -> s.toLowerCase())
                 .forEach(System.out::println);
     }
 
