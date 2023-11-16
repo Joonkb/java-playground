@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -30,7 +31,7 @@ public class StreamStudy {
 
         // 상위 100개만 어떻게 추출?
         words.stream().filter(w -> w.length() > 12)
-                .sorted()
+                .sorted(Comparator.comparingInt(String::length)) // TODO: 정렬기준 바꾸기
                 .distinct()
                 .limit(100)
                 .map(s -> s.toLowerCase())

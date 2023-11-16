@@ -32,9 +32,9 @@ public class Lambda {
                 .mapToInt(Integer::intValue).sum();
     }
 
-    public static int sumAllEven(List<Integer> numbers) {
+    public static int sumAllEven(List<Integer> numbers, Conditional c) {
         return numbers.stream()
-                .filter(num -> num % 2 == 0)
+                .filter(num -> c.test(num))
                 .mapToInt(Integer::intValue).sum();
     }
 
