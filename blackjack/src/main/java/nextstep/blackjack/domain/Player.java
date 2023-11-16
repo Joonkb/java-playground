@@ -1,4 +1,4 @@
-package nextstep.blackjack.utils;
+package nextstep.blackjack.domain;
 
 import lombok.Getter;
 
@@ -10,4 +10,5 @@ public class Player {
     public Player(String name) {
         this.name = name;
     }
+
 }

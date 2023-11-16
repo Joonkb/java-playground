@@ -1,5 +1,6 @@
 package nextstep.blackjack.utils;
 
+import nextstep.blackjack.domain.Player;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
