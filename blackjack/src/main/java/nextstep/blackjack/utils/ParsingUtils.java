@@ -1,9 +1,14 @@
 package nextstep.blackjack.utils;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class ParsingUtils {
 
-    static String[] parse(String exp) {
-        return exp.split(",");
+    public static List<Player> parse(String exp) {
+        return Arrays.asList(exp.split(",")).stream()
+                .map(name -> new Player(name))
+                .collect(Collectors.toList());
     }
-
 }
