@@ -10,16 +10,25 @@ public enum CardEnum {
     ;
     private int point;
 
-    CardEnum() {
-
-    }
-    public String getCardName() {
-        return this.name();
+    public String getCardInfoWithHangul() {
+        String type = this.name().split("_")[0];
+        return this.name().split("_")[1] + convertToHangulType(type);
     }
 
     public Integer getCardPoint() {
+        String name = this.name().split("_")[1];
         return 0;
     }
 
+    private String convertToHangulType(String type) {
+        if ("SPADE".equals(type)) {
+            return "스페이드";
+        } else if ("HEART".equals(type)) {
+            return "하트";
+        } else if ("DIAMOND".equals(type)) {
+            return "다이아몬드";
+        }
+        return "클로버";
+    }
 }
 
