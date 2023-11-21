@@ -11,8 +11,7 @@ public abstract class User {
         cardList = new ArrayList<>();
     }
 
-    protected void addCard(CardEnum card) {
+    public void addCard(CardEnum card) {
         cardList.add(card);
     }
-
 }
