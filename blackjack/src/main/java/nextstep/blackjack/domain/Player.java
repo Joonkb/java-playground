@@ -9,10 +9,12 @@ import java.util.List;
 @Setter
 public class Player extends User{
 
-    private String name;
     private Integer bettingAmount;
+    private String name;
 
     public Player(String name) {
+        super();
         this.name = name;
+        this.bettingAmount = 0;
     }
 }

@@ -1,6 +1,8 @@
 package nextstep.blackjack.view;
 
+import nextstep.blackjack.domain.Deck;
 import nextstep.blackjack.domain.Player;
+import nextstep.blackjack.domain.User;
 
 import java.awt.*;
 import java.util.List;
@@ -21,5 +23,15 @@ public class InputView {
             player.setBettingAmount(sc.nextInt());
             System.out.println();
         }
+    }
+
+    public static void askForCardReceiveOrNot(List<Player> players, User dealer, Deck deck) {
+
+        String yesOrNo;
+        do {
+            System.out.println("는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)");
+            yesOrNo = sc.next();
+            dealer.addCard(deck.getRandomCard());
+        } while ("Y".equals(yesOrNo));
     }
 }

@@ -8,16 +8,21 @@ public enum CardEnum {
     CLUB_2,    CLUB_3,    CLUB_4,    CLUB_5,    CLUB_6,    CLUB_7,    CLUB_8,    CLUB_9,    CLUB_10,    CLUB_J,    CLUB_Q,    CLUB_K,    CLUB_A
 
     ;
-    private int point;
 
     public String getCardInfoWithHangul() {
         String type = this.name().split("_")[0];
         return this.name().split("_")[1] + convertToHangulType(type);
     }
 
+    // 카드의 점수를 반환하는 메서드
     public Integer getCardPoint() {
         String name = this.name().split("_")[1];
-        return 0;
+        if (name.equals("A")) {
+            return 11;
+        } else if ("JQK".contains(name)) {
+            return 10;
+        }
+        return Integer.parseInt(name);
     }
 
     private String convertToHangulType(String type) {
@@ -29,6 +34,14 @@ public enum CardEnum {
             return "다이아몬드";
         }
         return "클로버";
+    }
+
+    public boolean isAceCard(CardEnum card) {
+        String type = this.name().split("_")[1];
+        if ("A".equals(type)) {
+            return true;
+        }
+        return false;
     }
 }
 

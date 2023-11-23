@@ -8,6 +8,7 @@ import static nextstep.blackjack.domain.CardEnum.*;
 public class Deck {
     private static List<CardEnum> deck;
     static {
+        // TODO: Enum 에서 반환받도록 수정할 것.
         deck =  new ArrayList<>(Arrays.asList(
                 SPADE_2,   SPADE_3,   SPADE_4,   SPADE_5,   SPADE_6,   SPADE_7,   SPADE_8,   SPADE_9,   SPADE_10,   SPADE_J,   SPADE_Q,   SPADE_K,   SPADE_A,
                 HEART_2,   HEART_3,   HEART_4,   HEART_5,   HEART_6,   HEART_7,   HEART_8,   HEART_9,   HEART_10,   HEART_J,   HEART_Q,   HEART_K,   HEART_A,
@@ -22,7 +23,7 @@ public class Deck {
      */
     public static CardEnum getRandomCard() {
         Random random = new Random();
-        int randInt = random.nextInt(deck.size());
+        int randInt = random.nextInt(getDeckSize());
         return deck.remove(randInt);
     }
 
