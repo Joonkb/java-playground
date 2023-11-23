@@ -3,6 +3,9 @@ package nextstep.blackjack.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import static nextstep.blackjack.domain.Deck.getDeckSize;
 import static nextstep.blackjack.domain.Deck.getRandomCard;
 import static org.assertj.core.api.Assertions.assertThat;
