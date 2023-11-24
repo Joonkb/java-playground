@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class Player extends User{
+public class Player extends User {
 
     private Integer bettingAmount;
     private String name;

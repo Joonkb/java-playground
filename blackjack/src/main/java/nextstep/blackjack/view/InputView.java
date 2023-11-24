@@ -26,12 +26,37 @@ public class InputView {
     }
 
     public static void askForCardReceiveOrNot(List<Player> players, User dealer, Deck deck) {
+        players.stream().forEach(player -> askForPlayer(player, deck));
 
+        /** 딜러의 경우 카드를 그냥 받아야 함. **/
+        processForDealer(dealer, deck);
+    }
+
+    private static void askForPlayer(User user, Deck deck) {
         String yesOrNo;
         do {
-            System.out.println("는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)");
+            System.out.println(getUserName(user) + "는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)");
             yesOrNo = sc.next();
-            dealer.addCard(deck.getRandomCard());
-        } while ("Y".equals(yesOrNo));
+            user.addCard(deck.getRandomCard());
+        } while ("Y".equals(yesOrNo) && !user.exceedBlackJackScoreYn());
+    }
+
+    /** 딜러의 카드처리  **/
+    private static void processForDealer(User user, Deck deck) {
+        int firstScore = user.calculateCardScore();
+        int receiveCount = 0;
+        while (!user.exceedBlackJackScoreYn()) {
+            user.addCard(deck.getRandomCard());
+            receiveCount++;
+        }
+        System.out.println("딜러는 " + firstScore + "이하라 " + receiveCount + "장의 카드를 더 받았습니다.");
+    }
+
+    private static String getUserName(User user) {
+        String name = "딜러";
+        if (user instanceof Player) {
+            name = ((Player) user).getName();
+        }
+        return name;
     }
 }

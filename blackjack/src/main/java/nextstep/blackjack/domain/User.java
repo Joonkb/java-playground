@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 public abstract class User {
 
     private List<CardEnum> cardList;
+    private final static Integer BLACKJACK_SCORE = 21;
 
     public User() {
         cardList = new ArrayList<>();
@@ -18,10 +19,11 @@ public abstract class User {
     public void addCard(CardEnum card) {
         cardList.add(card);
     }
-    // TODO: 몇 장의 카드를 보여줄지 size 를 입력받도록.
-    public String showUserCards() {
+
+    public String showUserCards(int limit) {
         return cardList.stream()
                 .map(e -> e.getCardInfoWithHangul())
+                .limit(limit)
                 .collect(Collectors.joining(", "));
     }
 
@@ -29,5 +31,13 @@ public abstract class User {
         return cardList.stream()
                 .map(card -> card.getCardPoint())
                 .reduce(Integer::sum).get();
+    }
+
+    public boolean isBlackJackScore() {
+        return this.calculateCardScore() == BLACKJACK_SCORE;
+    }
+
+    public boolean exceedBlackJackScoreYn() {
+        return this.calculateCardScore() > BLACKJACK_SCORE;
     }
 }

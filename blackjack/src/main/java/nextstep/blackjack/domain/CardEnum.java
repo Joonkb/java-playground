@@ -6,9 +6,7 @@ public enum CardEnum {
     HEART_2,   HEART_3,   HEART_4,   HEART_5,   HEART_6,   HEART_7,   HEART_8,   HEART_9,   HEART_10,   HEART_J,   HEART_Q,   HEART_K,   HEART_A,
     DIAMOND_2, DIAMOND_3, DIAMOND_4, DIAMOND_5, DIAMOND_6, DIAMOND_7, DIAMOND_8, DIAMOND_9, DIAMOND_10, DIAMOND_J, DIAMOND_Q, DIAMOND_K, DIAMOND_A,
     CLUB_2,    CLUB_3,    CLUB_4,    CLUB_5,    CLUB_6,    CLUB_7,    CLUB_8,    CLUB_9,    CLUB_10,    CLUB_J,    CLUB_Q,    CLUB_K,    CLUB_A
-
     ;
-
     public String getCardInfoWithHangul() {
         String type = this.name().split("_")[0];
         return this.name().split("_")[1] + convertToHangulType(type);
@@ -18,7 +16,7 @@ public enum CardEnum {
     public Integer getCardPoint() {
         String name = this.name().split("_")[1];
         if (name.equals("A")) {
-            return 11;
+            return 1;
         } else if ("JQK".contains(name)) {
             return 10;
         }
