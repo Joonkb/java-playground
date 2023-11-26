@@ -8,6 +8,8 @@ import java.util.List;
 
 import static nextstep.blackjack.utils.ParsingUtils.parse;
 import static nextstep.blackjack.view.InputView.*;
+import static nextstep.blackjack.view.ResultView.divideTwoCards;
+import static nextstep.blackjack.view.ResultView.showUserScoreInfo;
 
 public class Main {
 
@@ -21,7 +23,7 @@ public class Main {
         
         /**  딜러, 플레이어 2장의 카드 분배  **/
         User dealer = new Dealer();
-        ResultView.divideTwoCards(players, dealer, deck);
+        divideTwoCards(players, dealer, deck);
 
         /**  딜러, 플레이어 카드정보 출력  **/
         System.out.print("딜러: "); System.out.println(dealer.showUserCards(1));
@@ -29,5 +31,11 @@ public class Main {
 
         /** 카드 한장을 받을지, 말지 결정한다. **/
         askForCardReceiveOrNot(players, dealer, deck);
+
+        /** 최종 결과를 출력한다. **/
+        showUserScoreInfo(dealer, players);
+
+        /** 최종 수익을 계산한다. **/
+        showUserScoreInfo(dealer, players);
     }
 }

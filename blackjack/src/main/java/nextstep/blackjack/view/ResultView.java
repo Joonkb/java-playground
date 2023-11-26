@@ -23,8 +23,12 @@ public class ResultView {
         players.stream().forEach(player -> player.addCard(deck.getRandomCard()));
     }
 
-    public static void ShowUserScoreInfo(User dealer, List<Player> players) {
-
+    public static void showUserScoreInfo(User dealer, List<Player> players) {
+        System.out.println("딜러 카드: "  + dealer.showUserCards(52) + " - 결과: " + dealer.calculateCardScore());
+        players.stream().forEach(player -> System.out.println(
+                player.getName() + "카드: " +
+                player.showUserCards(52) + " - 결과: " +
+                player.calculateCardScore()));
     }
 
 }
