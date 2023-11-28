@@ -9,6 +9,10 @@ public class Deck {
     private static List<CardEnum> deck =
             new ArrayList<>(Arrays.stream(values()).toList());
 
+    static {
+        Collections.shuffle(deck);
+    }
+
     /**
      * 카드중 랜덤한 카드 한장을 반환한다.
      */

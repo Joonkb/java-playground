@@ -10,7 +10,9 @@ import java.util.stream.Collectors;
 public abstract class User {
 
     private List<CardEnum> cardList;
+
     private final static Integer BLACKJACK_SCORE = 21;
+    private final static Integer FIRST_CARD_SIZE = 2;
 
     public User() {
         cardList = new ArrayList<>();
@@ -39,5 +41,10 @@ public abstract class User {
 
     public boolean exceedBlackJackScoreYn() {
         return this.calculateCardScore() > BLACKJACK_SCORE;
+    }
+
+    public boolean hasTwoCardsYn() {
+        return cardList.size() == FIRST_CARD_SIZE;
+
     }
 }

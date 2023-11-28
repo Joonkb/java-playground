@@ -16,7 +16,7 @@ public enum CardEnum {
     public Integer getCardPoint() {
         String name = this.name().split("_")[1];
         if (name.equals("A")) {
-            return 1;
+            return 11;
         } else if ("JQK".contains(name)) {
             return 10;
         }

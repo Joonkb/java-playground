@@ -8,8 +8,7 @@ import java.util.List;
 
 import static nextstep.blackjack.utils.ParsingUtils.parse;
 import static nextstep.blackjack.view.InputView.*;
-import static nextstep.blackjack.view.ResultView.divideTwoCards;
-import static nextstep.blackjack.view.ResultView.showUserScoreInfo;
+import static nextstep.blackjack.view.ResultView.*;
 
 public class Main {
 
@@ -36,6 +35,6 @@ public class Main {
         showUserScoreInfo(dealer, players);
 
         /** 최종 수익을 계산한다. **/
-        showUserScoreInfo(dealer, players);
+        calculateFinalProfit(dealer, players);
     }
 }
