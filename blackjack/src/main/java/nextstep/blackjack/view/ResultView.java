@@ -36,15 +36,20 @@ public class ResultView {
      */
     public static void calculateFinalProfit(User dealer, List<Player> players) {
         System.out.println("## 최종 수익");
-        int dealerScore = dealer.calculateCardScore();
+        int cnt = 0;
         List<Integer> profits = players.stream()
                 .map(player -> calculatePlayersPoint(dealer, player))
                 .collect(Collectors.toList());
-        Integer dealerProfit = profits.stream().reduce(Integer::sum).get();
+        Integer dealerProfit = profits.stream().reduce(Integer::sum).get() * -1;
         System.out.println("딜러: " + dealerProfit);
-        players.stream().forEach(player -> System.out.println(player.getName() + ": "));
+        for (Player player : players) {
+            System.out.println(player.getName() + ": " + profits.get(cnt++));
+        }
     }
 
+    /**
+     *   우선순위를 고려한 배팅금액 반환
+     */
     public static Integer calculatePlayersPoint(User dealer, Player player) {
 
         boolean dealerAddedYn = dealer.hasTwoCardsYn();
@@ -58,7 +63,7 @@ public class ResultView {
         }
         /**  플레이어가 처음받은 2장이 블랙잭인 경우  **/
         if (playerAddedYn && playerBlackJackYn) {
-            return (Integer) (player.getBettingAmount() * 15 / 10);
+            return player.getBettingAmount() * 15 / 10;
         }
         /** 딜러의 점수가 21점을 초과한 경우 **/
         if (dealer.exceedBlackJackScoreYn()) {
@@ -66,9 +71,6 @@ public class ResultView {
         }
         /** 플레이어의 점수가 21점을 초과한 경우 **/
         if (player.exceedBlackJackScoreYn()) {
-            return player.getBettingAmount() * -1;
-        }
-        if (dealerBlackJackYn || player.calculateCardScore() <= dealer.calculateCardScore()) {
             return player.getBettingAmount() * -1;
         }
         return player.getBettingAmount() * -1;
