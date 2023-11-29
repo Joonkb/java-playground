@@ -33,7 +33,7 @@ public enum CardEnum {
         return "클로버";
     }
 
-    public boolean isAceCard(CardEnum card) {
+    public boolean isAceCard() {
         String type = this.name().split("_")[1];
         if ("A".equals(type)) {
             return true;
