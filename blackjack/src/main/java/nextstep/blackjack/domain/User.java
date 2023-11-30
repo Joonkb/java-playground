@@ -39,12 +39,12 @@ public abstract class User {
      */
     public Integer calculateCardScore() {
         // TODO: 하나의 스트림으로 만들 수 있을 것 같음
-        boolean hasAceCard = cardList.stream()
-                .anyMatch(cardEnum -> cardEnum.isAceCard());
+
         Integer score =  cardList.stream()
                                 .map(card -> card.getCardPoint())
                                 .reduce(Integer::sum).get();
-        if(score > BLACKJACK_SCORE && hasAceCard) {
+
+        if(score > BLACKJACK_SCORE && hasAceCard()) {
             return score - 10;
         }
         return score;
@@ -60,6 +60,9 @@ public abstract class User {
 
     public boolean hasTwoCardsYn() {
         return cardList.size() == FIRST_CARD_SIZE;
-
+    }
+    private boolean hasAceCard() {
+        return cardList.stream()
+                .anyMatch(cardEnum -> cardEnum.isAceCard());
     }
 }

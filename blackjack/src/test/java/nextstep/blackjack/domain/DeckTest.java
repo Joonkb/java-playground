@@ -1,10 +1,10 @@
 package nextstep.blackjack.domain;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.List;
 
 import static nextstep.blackjack.domain.Deck.getDeckSize;
 import static nextstep.blackjack.domain.Deck.getRandomCard;
@@ -22,5 +22,17 @@ class DeckTest {
 
         assertThat(randomCard).isInstanceOf(CardEnum.class);
         assertThat(currentDeckSize - 1).isEqualTo(getDeckSize());   // 반환 후 Deck 사이즈 검증
+    }
+
+    @Test
+    @DisplayName("덱에서 지정한 수만큼 카드를 반환")
+    void 덱에서_카드_여러장_반환() {
+        Deck deck = new Deck();
+
+        int size = 5;
+        List<CardEnum> cards = deck.getRandomCardsWithSize(size);
+        Assertions.assertThat(cards.size()).isEqualTo(size);
+
+        cards.stream().forEach(cardEnum -> System.out.println("cardEnum = " + cardEnum));
     }
 }
