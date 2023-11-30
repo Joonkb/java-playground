@@ -22,6 +22,10 @@ public abstract class User {
         cardList.add(card);
     }
 
+    public void addCards(List<CardEnum> cards) {
+        cardList.addAll(cards);
+    }
+
     public String showUserCards(int limit) {
         return cardList.stream()
                 .map(e -> e.getCardInfoWithHangul())

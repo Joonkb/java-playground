@@ -17,10 +17,8 @@ public class ResultView {
                 .collect(Collectors.joining(","));
 
         System.out.println("딜러와 " + names +"에게 두 장을 나누었습니다.");
-        dealer.addCard(deck.getRandomCard());
-        dealer.addCard(deck.getRandomCard());
-        players.stream().forEach(player -> player.addCard(deck.getRandomCard()));
-        players.stream().forEach(player -> player.addCard(deck.getRandomCard()));
+        dealer.addCards(deck.getRandomCardsWithSize(2));
+        players.stream().forEach(player -> player.addCards(deck.getRandomCardsWithSize(2)));
     }
 
     public static void showUserScoreInfo(User dealer, List<Player> players) {
