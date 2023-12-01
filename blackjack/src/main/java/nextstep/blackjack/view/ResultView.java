@@ -10,15 +10,12 @@ import java.util.stream.Collectors;
 
 public class ResultView {
 
-    public static void divideTwoCards(List<Player> players, User dealer, Deck deck) {
+    private static final int HOW_MANY_SHOW_DEALER = 1;
+    private static final int HOW_MANY_SHOW_PLAYER = 2;
 
-        String names = players.stream()
-                .map(e-> e.getName())
-                .collect(Collectors.joining(","));
-
-        System.out.println("딜러와 " + names +"에게 두 장을 나누었습니다.");
-        dealer.addCards(deck.getRandomCardsWithSize(2));
-        players.stream().forEach(player -> player.addCards(deck.getRandomCardsWithSize(2)));
+    public static void showUserCardInfo(User dealer, List<Player> players) {
+        System.out.print("딜러: "); System.out.println(dealer.showUserCards(HOW_MANY_SHOW_DEALER));
+        players.stream().forEach(player -> System.out.println(player.getName() +": "+ player.showUserCards(HOW_MANY_SHOW_PLAYER)));
     }
 
     public static void showUserScoreInfo(User dealer, List<Player> players) {

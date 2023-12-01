@@ -34,16 +34,14 @@ public abstract class User {
     }
 
     /**
-     *  if :  ACE 카드가 포함된 경우 (11점으로 계산한다.)
+     *  if : ACE 카드가 포함된 경우 (11점으로 계산한다.)
      *    if 21점이 넘은 경우 ACE를 1점으로 계산
      *    else 합을 반환
      *
-     *  else : ACE 카드가 포함되지 않은 경우
-     *    - 카드 점수의 합을 계산한다.
+     *  else
+     *       카드 점수의 합을 계산한다.
      */
     public Integer calculateCardScore() {
-        // TODO: 하나의 스트림으로 만들 수 있을 것 같음
-
         Integer score =  cardList.stream()
                                 .map(card -> card.getCardPoint())
                                 .reduce(Integer::sum).get();

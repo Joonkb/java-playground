@@ -27,6 +27,9 @@ public class Deck {
         return deck.remove(randInt);
     }
 
+    /**
+     * size 만큼 카드 여러 장을 반환한다.
+     */
     public static List<CardEnum> getRandomCardsWithSize(int size) {
         if (getDeckSize() < size) {
             throw new IllegalArgumentException("카드 덱에서 반환할 카드가 부족합니다.");
