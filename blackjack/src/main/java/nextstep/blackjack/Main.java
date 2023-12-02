@@ -4,8 +4,7 @@ import nextstep.blackjack.domain.*;
 
 import java.util.List;
 
-import static nextstep.blackjack.utils.GameManager.askForCardReceiveOrNot;
-import static nextstep.blackjack.utils.GameManager.divideTwoCards;
+import static nextstep.blackjack.utils.GameManager.*;
 import static nextstep.blackjack.utils.ParsingUtils.parse;
 import static nextstep.blackjack.view.InputView.*;
 import static nextstep.blackjack.view.ResultView.*;

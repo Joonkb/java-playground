@@ -9,8 +9,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 /**
- * 게임 진행에 필요한
- * 유틸성 STATIC 메서드를 모아놓음
+ * 게임 진행에 필요한 유틸성 STATIC 메서드 집합 클래스
  */
 public class GameManager {
 
@@ -41,6 +40,7 @@ public class GameManager {
      * 플레이어의 카드처리
      */
     private static void askForPlayer(User user, Deck deck) {
+        // TODO: 한장의 카드를 무조건 받아버림. 수정필요
         String yesOrNo;
         do {
             System.out.println(getUserName(user) + "는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)");
@@ -73,4 +73,48 @@ public class GameManager {
         return name;
     }
 
+    /**
+     * 최종 수익을 계산한다.
+     */
+    public static void calculateFinalProfit(User dealer, List<Player> players) {
+        System.out.println("## 최종 수익");
+        int cnt = 0;
+        List<Integer> profits = players.stream()
+                .map(player -> calculatePlayersProfit(dealer, player))
+                .collect(Collectors.toList());
+        Integer dealerProfit = profits.stream().reduce(Integer::sum).get() * -1;
+        System.out.println("딜러: " + dealerProfit);
+        for (Player player : players) {
+            System.out.println(player.getName() + ": " + profits.get(cnt++));
+        }
+    }
+
+    /**
+     *   우선순위를 고려한 수익금 반환
+     */
+    public static Integer calculatePlayersProfit(User dealer, Player player) {
+
+        boolean dealerAddedYn       = dealer.hasTwoCardsYn();
+        boolean playerAddedYn       = player.hasTwoCardsYn();
+        boolean dealerBlackJackYn   = dealer.isBlackJackScore();
+        boolean playerBlackJackYn   = player.isBlackJackScore();
+
+        /**  딜러, 플레이어 모두 카드 2장에 블랙잭인경우 **/
+        if (dealerAddedYn && dealerBlackJackYn && playerAddedYn && playerBlackJackYn) {
+            return player.getBettingAmount();
+        }
+        /**  플레이어가 처음받은 2장이 블랙잭인 경우  **/
+        if (playerAddedYn && playerBlackJackYn) {
+            return player.getBettingAmount() * 15 / 10;
+        }
+        /** 딜러의 점수가 21점을 초과한 경우 **/
+        if (dealer.exceedBlackJackScoreYn()) {
+            return player.getBettingAmount();
+        }
+        /** 플레이어의 점수가 21점을 초과한 경우 **/
+        if (player.exceedBlackJackScoreYn()) {
+            return player.getBettingAmount() * -1;
+        }
+        return player.getBettingAmount() * -1;
+    }
 }
