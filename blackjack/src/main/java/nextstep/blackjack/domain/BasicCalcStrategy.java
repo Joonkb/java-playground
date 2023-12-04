@@ -26,6 +26,15 @@ public class BasicCalcStrategy implements CalcStrategy {
         if (player.exceedBlackJackScoreYn()) {
             return player.getBettingAmount() * -1;
         }
+        /** 플레이어의 점수가 블랙잭 점수에 더 가까운 경우**/
+        if(dealer.calculateCardScore() < player.calculateCardScore()){
+            return player.getBettingAmount() * 1;
+        }
+        /** 딜러의 점수와 플레이어의 점수가 같은 경우**/
+        if(dealer.calculateCardScore() == player.calculateCardScore()){
+            return 0;
+        }
+
         return player.getBettingAmount() * -1;
     }
 }
