@@ -12,6 +12,11 @@ public class Player extends User {
     private Integer bettingAmount;
     private String name;
 
+    public Player(Integer bettingAmount, String name) {
+        this.bettingAmount = bettingAmount;
+        this.name = name;
+    }
+
     public Player(String name) {
         super();
         this.name = name;

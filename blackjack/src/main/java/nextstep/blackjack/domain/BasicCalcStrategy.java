@@ -12,7 +12,11 @@ public class BasicCalcStrategy implements CalcStrategy {
 
         /**  딜러, 플레이어 모두 카드 2장에 블랙잭인경우 **/
         if (dealerAddedYn && dealerBlackJackYn && playerAddedYn && playerBlackJackYn) {
-            return player.getBettingAmount();
+            return 0;
+        }
+        /** 딜러, 플레이어 모두 블랙잭인 경우 **/
+        if (dealerBlackJackYn && playerBlackJackYn) {
+            return 0;
         }
         /**  플레이어가 처음받은 2장이 블랙잭인 경우  **/
         if (playerAddedYn && playerBlackJackYn) {
@@ -34,7 +38,6 @@ public class BasicCalcStrategy implements CalcStrategy {
         if(dealer.calculateCardScore() == player.calculateCardScore()){
             return 0;
         }
-
         return player.getBettingAmount() * -1;
     }
 }
