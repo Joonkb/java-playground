@@ -63,8 +63,13 @@ public abstract class User {
     public boolean hasTwoCardsYn() {
         return cardList.size() == FIRST_CARD_SIZE;
     }
+
     private boolean hasAceCard() {
         return cardList.stream()
                 .anyMatch(cardEnum -> cardEnum.isAceCard());
+    }
+
+    public Integer getCardSize() {
+        return cardList.size();
     }
 }

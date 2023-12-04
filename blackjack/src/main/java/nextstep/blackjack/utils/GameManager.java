@@ -40,13 +40,14 @@ public class GameManager {
      * 플레이어의 카드처리
      */
     private static void askForPlayer(User user, Deck deck) {
-        // TODO: 한장의 카드를 무조건 받아버림. 수정필요
         String yesOrNo;
         do {
             System.out.println(getUserName(user) + "는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)");
             yesOrNo = sc.next();
+            if(CCM.NO.equals(yesOrNo)){ break;}
             user.addCard(deck.getRandomCard());
-        } while ("y".equals(yesOrNo) && !user.exceedBlackJackScoreYn());
+            System.out.println(getUserName(user) + "카드: " + user.showUserCards(user.getCardSize()));
+        } while (!user.exceedBlackJackScoreYn());
     }
 
     /**
@@ -59,9 +60,9 @@ public class GameManager {
             receiveCount++;
         }
         if (receiveCount > 0) {
-            System.out.println("\n딜러는 16이하라 " + receiveCount + "장의 카드를 더 받았습니다.");
+            System.out.println("\n딜러는 16이하라 " + receiveCount + "장의 카드를 더 받았습니다.\n");
         } else {
-            System.out.println("\n딜러는 17점 초과라 카드를 추가로 받지 않았습니다.");
+            System.out.println("\n딜러는 17점 초과라 카드를 추가로 받지 않았습니다.\n");
         }
     }
 
@@ -83,6 +84,7 @@ public class GameManager {
                 .map(player -> strategy.calculatePlayersPoint(dealer, player))
                 .collect(Collectors.toList());
         Integer dealerProfit = profits.stream().reduce(Integer::sum).get() * -1;
+
         System.out.println("딜러: " + dealerProfit);
         for (Player player : players) {
             System.out.println(player.getName() + ": " + profits.get(cnt++));
