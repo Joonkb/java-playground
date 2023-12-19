@@ -5,19 +5,11 @@ import nextstep.blackjack.domain.PlayingCard;
 
 public abstract class Started implements State {
 
-    private Cards cards;
+    private final Cards cards;
 
-    @Override
-    public State draw(PlayingCard card) {
-
-        return null;
+    public Started(Cards cards) {
+        this.cards = cards;
     }
-
-    @Override
-    public State stay() {
-        return null;
-    }
-
     @Override
     public boolean isFinished() {
         return false;
@@ -28,8 +20,5 @@ public abstract class Started implements State {
         return null;
     }
 
-    @Override
-    public double profit(double x) {
-        return 0;
-    }
 }
+

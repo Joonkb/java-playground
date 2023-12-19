@@ -16,9 +16,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" +
-                "type=" + type +
-                ", value=" + value +
-                '}';
+        return value.toString() + type.getHangulType();
     }
+
 }

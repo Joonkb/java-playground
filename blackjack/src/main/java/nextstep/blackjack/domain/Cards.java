@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Cards {
     
-    // 일급컬렉션으로 구성
     private List<Card> cards;
 
     public Cards(List<Card> cards) {

@@ -28,4 +28,12 @@ public enum Denomination {
     public int getScore() {
         return score;
     }
+
+    @Override
+    public String toString() {
+        if ("JQKA".contains(String.valueOf(this.name().charAt(0)))) {
+            return String.valueOf(this.name().charAt(0));
+        }
+        return String.valueOf(getScore());
+    }
 }

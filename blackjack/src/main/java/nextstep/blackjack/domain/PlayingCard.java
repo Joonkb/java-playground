@@ -10,6 +10,7 @@ public class PlayingCard {
 
     public PlayingCard() {
         deck = new ArrayList<>();
+        // TODO: depth 1으로 수정할 것.
         for (Suit type : Suit.values()) {
             for(Denomination value : Denomination.values()){
                 deck.add(new Card(type, value));

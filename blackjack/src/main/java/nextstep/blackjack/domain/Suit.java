@@ -12,4 +12,7 @@ public enum Suit {
         this.hangulType = hangulType;
     }
 
+    public String getHangulType() {
+        return hangulType;
+    }
 }

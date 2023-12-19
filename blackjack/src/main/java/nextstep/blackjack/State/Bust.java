@@ -5,32 +5,12 @@ import nextstep.blackjack.domain.PlayingCard;
 
 public class Bust extends Finished {
 
-    public Bust(Cards cards) {
-
+    public Bust(final Cards cards) {
+        super(cards);
     }
 
     @Override
-    public State draw(PlayingCard card) {
-        return null;
-    }
-
-    @Override
-    public State stay() {
-        return null;
-    }
-
-    @Override
-    public boolean isFinished() {
-        return false;
-    }
-
-    @Override
-    public Cards cards() {
-        return null;
-    }
-
-    @Override
-    public double profit(double x) {
+    double earningRate() {
         return 0;
     }
 }
