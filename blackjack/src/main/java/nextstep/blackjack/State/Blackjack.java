@@ -12,6 +12,5 @@ import nextstep.blackjack.domain.Cards;
         public double earningRate() {
             return 1.5;
         }
-    }
 
 }
