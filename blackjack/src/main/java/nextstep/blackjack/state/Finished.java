@@ -1,17 +1,11 @@
-package nextstep.blackjack.State;
+package nextstep.blackjack.state;
 
-import nextstep.blackjack.domain.Cards;
-import nextstep.blackjack.domain.PlayingCard;
+import nextstep.blackjack.domain.card.Cards;
 
 public abstract class Finished extends Started {
 
     public Finished(final Cards cards) {
         super(cards);
-    }
-
-    @Override
-    public State draw(PlayingCard card) {
-        return null;
     }
 
     @Override

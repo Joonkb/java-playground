@@ -1,10 +1,11 @@
 package nextstep.blackjack.domain;
 
+import nextstep.blackjack.domain.card.Card;
+import nextstep.blackjack.domain.card.Denomination;
+import nextstep.blackjack.domain.card.Suit;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CardTest {
 

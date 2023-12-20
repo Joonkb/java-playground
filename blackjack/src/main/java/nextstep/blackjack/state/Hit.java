@@ -1,9 +1,10 @@
-package nextstep.blackjack.State;
+package nextstep.blackjack.state;
 
-import nextstep.blackjack.domain.Cards;
-import nextstep.blackjack.domain.PlayingCard;
+import nextstep.blackjack.domain.card.Cards;
+import nextstep.blackjack.domain.card.PlayingCard;
 
 public class Hit extends Running {
+
     public Hit(final Cards cards) {
         super(cards);
     }
@@ -22,4 +23,3 @@ public class Hit extends Running {
         return new Stay(cards);
     }
 }
-

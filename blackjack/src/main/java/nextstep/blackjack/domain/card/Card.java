@@ -1,4 +1,4 @@
-package nextstep.blackjack.domain;
+package nextstep.blackjack.domain.card;
 
 import lombok.Getter;
 import lombok.Setter;
