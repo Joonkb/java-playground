@@ -19,6 +19,7 @@ public class PlayingCard {
 
     public static List<Card> makeCardListByType(Suit type) {
         return Arrays.stream(Denomination.values())
-                .map(value -> new Card(type, value)).collect(Collectors.toList());
+                .map(value -> new Card(type, value))
+                .collect(Collectors.toList());
     }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 public class Player extends Participant {
 
     private String name;
+    private int bettingAmount;
 
     public Player(String name) {
         this.name = name;
