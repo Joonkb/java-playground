@@ -1,22 +1,23 @@
 package nextstep.blackjack.domain.participant;
 
 import nextstep.blackjack.domain.card.Card;
+import nextstep.blackjack.domain.card.Cards;
 import nextstep.blackjack.state.State;
+import nextstep.blackjack.state.Stay;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Participant {
 
-    private List<Card> cards;
+    // State 안에 Cards가 있음.
     private State state;
 
     Participant() {
-        cards = new ArrayList<>();
+        // 참가자는
     }
 
     public Participant(List<Card> cards) {
-        this.cards = cards;
+        state = new Stay(new Cards(cards));
     }
 
 }

@@ -6,6 +6,6 @@ public class OutputView {
     }
 
     public static void printByFormat(String msg, Object ... args) {
-        String.format(msg, args);
+        System.out.println(String.format(msg, args));
     }
 }

@@ -1,6 +1,7 @@
 package nextstep.blackjack.state;
 
 import nextstep.blackjack.domain.card.Cards;
+import nextstep.blackjack.domain.card.PlayingCard;
 
 public abstract class Finished extends Started {
 
@@ -14,8 +15,13 @@ public abstract class Finished extends Started {
     }
 
     @Override
+    public State draw(PlayingCard card) {
+        return null;
+    }
+
+    @Override
     public boolean isFinished() {
-        return super.isFinished();
+        return true;
     }
 
     @Override

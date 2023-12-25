@@ -1,6 +1,7 @@
 package nextstep.blackjack.domain.card;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cards {
     
@@ -20,5 +21,11 @@ public class Cards {
 
     public void add(PlayingCard card) {
         cards.add(card.getRandomCard());
+    }
+
+    private int calculateScore() {
+        return cards.stream()
+                .mapToInt(card -> card.getScore())
+                .sum();
     }
 }

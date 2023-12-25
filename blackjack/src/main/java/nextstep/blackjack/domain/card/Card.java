@@ -6,12 +6,16 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Card {
-    private Suit type;
-    private Denomination value;
+    private final Suit type;
+    private final Denomination value;
 
     public Card(Suit type, Denomination value) {
         this.type = type;
         this.value = value;
+    }
+
+    public int getScore() {
+        return value.getScore();
     }
 
     @Override

@@ -9,15 +9,10 @@ public abstract class Started implements State {
     public Started(Cards cards) {
         this.cards = cards;
     }
-    @Override
-    public boolean isFinished() {
-        return false;
-    }
 
     @Override
     public Cards cards() {
-        return null;
+        return cards;
     }
-
 }
 
