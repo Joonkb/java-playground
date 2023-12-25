@@ -6,11 +6,8 @@ import java.util.List;
 
 public class Dealer extends Participant {
 
-    Dealer() {
-
+    public Dealer() {
+        super("딜러");
     }
 
-    public Dealer(List<Card> cards) {
-        super(cards);
-    }
 }
