@@ -1,7 +1,7 @@
 package nextstep.blackjack.domain.card;
 
 public enum Denomination {
-    ACE(1),
+    ACE(11),
     TWO(2),
     THREE(3),
     FOUR(4),
@@ -21,7 +21,7 @@ public enum Denomination {
         this.score = score;
     }
 
-    public boolean isAce() {
+    public boolean isAceCard() {
         return this == ACE;
     }
 

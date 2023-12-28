@@ -1,5 +1,7 @@
 package nextstep.blackjack.domain.card;
 
+import nextstep.blackjack.utils.CCM;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,9 +25,43 @@ public class Cards {
         cards.add(card.getRandomCard());
     }
 
+    /**
+     * Ace 카드는 11점으로 처리하고 Bust 점수인 경우 11점으로 처리한다.
+     */
     private int calculateScore() {
+        // 단순한 점수계산
+        int AceCardCnt  = howManyAceInCards();
+        int simpleScore = calcuateSimpleScore();
+
+        if (AceCardCnt == 0) {
+            return simpleScore;
+        }
+        while (AceCardCnt != 0 && simpleScore > CCM.BUST_SCORE) {
+            simpleScore -= 10;
+            AceCardCnt -= 1;
+        }
+        return simpleScore;
+    }
+
+    private int calcuateSimpleScore() {
         return cards.stream()
                 .mapToInt(card -> card.getScore())
                 .sum();
+    }
+
+    private int howManyAceInCards() {
+        return (int) cards.stream()
+                          .filter(card -> card.isAceCard())
+                          .count();
+    }
+
+    public String getCardListWithString(int limit) {
+        return cards.stream()
+                .map(card -> card.toString())
+                .limit(limit)
+                .collect(Collectors.joining(","));
+    }
+    public int getCardListSize() {
+        return cards.size();
     }
 }
