@@ -60,12 +60,12 @@ public class Participants {
         int receiveCount = 0;
         while (dealer.calculateCardScore() <= 16) {
             dealer.addCard(deck);
-            receiveCount++;
+            receiveCount += 1;
         }
         if (receiveCount > 0) {
-            System.out.println("\n딜러는 16이하라 " + receiveCount + "장의 카드를 더 받았습니다.\n");
+            OutputView.printHowManyCardReceive(receiveCount);
         } else {
-            System.out.println("\n딜러는 17점 초과라 카드를 추가로 받지 않았습니다.\n");
+            OutputView.printDealerExceededScore();
         }
     }
 
