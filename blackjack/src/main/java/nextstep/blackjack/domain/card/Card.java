@@ -22,10 +22,8 @@ public class Card {
         return value.isAceCard();
     }
 
-
     @Override
     public String toString() {
         return value.toString() + type.getHangulType();
     }
-
 }

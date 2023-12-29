@@ -26,24 +26,23 @@ public class Cards {
     }
 
     /**
-     * Ace 카드는 11점으로 처리하고 Bust 점수인 경우 11점으로 처리한다.
+     * Ace 카드는 11점으로 처리하고 Bust점수인 경우 1점으로 처리한다.
      */
     private int calculateScore() {
-        // 단순한 점수계산
         int AceCardCnt  = howManyAceInCards();
-        int simpleScore = calcuateSimpleScore();
+        int simpleScore = calculateSimpleScore();
 
         if (AceCardCnt == 0) {
             return simpleScore;
         }
-        while (AceCardCnt != 0 && simpleScore > CCM.BUST_SCORE) {
+        while (AceCardCnt > 0 && simpleScore > CCM.BUST_SCORE) {
             simpleScore -= 10;
             AceCardCnt -= 1;
         }
         return simpleScore;
     }
 
-    private int calcuateSimpleScore() {
+    private int calculateSimpleScore() {
         return cards.stream()
                 .mapToInt(card -> card.getScore())
                 .sum();

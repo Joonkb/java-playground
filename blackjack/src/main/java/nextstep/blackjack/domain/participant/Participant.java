@@ -15,8 +15,8 @@ public abstract class Participant {
 
     private static final int FIRST_TWO_CARD = 2;
 
-    private State state;
     private String name;
+    protected State state;
 
     Participant(String name) {
         this.name = name;
@@ -39,5 +39,9 @@ public abstract class Participant {
             this.getCards().getCardListWithString(getCards().getCardListSize());
         }
         return this.getCards().getCardListWithString(size);
+    }
+
+    public int calculateCardScore() {
+        return 0;
     }
 }

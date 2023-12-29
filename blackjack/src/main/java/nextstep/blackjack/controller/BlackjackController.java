@@ -12,15 +12,13 @@ public class BlackjackController {
     private PlayingCard playingCard;
 
     public BlackjackController() {
-        playingCard = new PlayingCard();
+        playingCard  = new PlayingCard();
+        participants = new Participants(new Dealer(), makePlayers());
     }
 
     public void start() {
-        Participants participants = new Participants(new Dealer(), makePlayers());
-
-        participants.inputPlayersBettingAmount();        /* 배팅금액 세팅      */
-        participants.divideTwoCards(playingCard);        /* 두 장의 카드 분배. */
-
+        participants.inputPlayersBettingAmount();
+        participants.divideTwoCards(playingCard);
+        participants.askForCardReceiveOrNot(playingCard);
     }
-
 }

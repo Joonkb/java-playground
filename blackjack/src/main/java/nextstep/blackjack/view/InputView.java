@@ -1,11 +1,14 @@
 package nextstep.blackjack.view;
 
 import nextstep.blackjack.domain.participant.Player;
+import nextstep.blackjack.utils.CCM;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+
+import static nextstep.blackjack.utils.CCM.NO;
 
 public class InputView {
 
@@ -29,6 +32,14 @@ public class InputView {
 
     private static String readConsole() {
         return sc.next();
+    }
+
+    public static boolean getOneMoreCardOrNot() {
+        String yesOrNo = readConsole();
+        if (NO.equals(yesOrNo)) {
+            return true;
+        }
+        return false;
     }
 
 }
