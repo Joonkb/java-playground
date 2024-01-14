@@ -1,13 +1,13 @@
 package nextstep.blackjack.domain.participant;
 
 import nextstep.blackjack.domain.card.PlayingCard;
-import nextstep.blackjack.utils.CCM;
 import nextstep.blackjack.view.InputView;
 import nextstep.blackjack.view.OutputView;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static nextstep.blackjack.utils.CCM.DEALER_BUST_SCORE;
 import static nextstep.blackjack.view.InputView.inputPlayersBettingAmt;
 
 public class Participants {
@@ -58,7 +58,7 @@ public class Participants {
 
     private void processForDealer(PlayingCard deck) {
         int receiveCount = 0;
-        while (dealer.calculateCardScore() <= 16) {
+        while (dealer.calculateCardScore() <= DEALER_BUST_SCORE) {
             dealer.addCard(deck);
             receiveCount += 1;
         }
@@ -75,7 +75,7 @@ public class Participants {
             if (InputView.getOneMoreCardOrNot()) {
                 break;
             }
-            player.addCard(deck);
-        } while(true);
+            player.draw(deck);
+        } while (player.isBust());
     }
 }

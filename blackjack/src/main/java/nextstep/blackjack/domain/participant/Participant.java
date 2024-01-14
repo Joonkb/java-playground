@@ -4,11 +4,15 @@ import lombok.Getter;
 import nextstep.blackjack.domain.card.Card;
 import nextstep.blackjack.domain.card.Cards;
 import nextstep.blackjack.domain.card.PlayingCard;
+import nextstep.blackjack.state.Blackjack;
 import nextstep.blackjack.state.Hit;
 import nextstep.blackjack.state.State;
 import nextstep.blackjack.state.Stay;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static nextstep.blackjack.utils.CCM.BUST_MIN_SCORE;
 
 @Getter
 public abstract class Participant {
@@ -22,12 +26,12 @@ public abstract class Participant {
         this.name = name;
     }
 
-    public Participant(List<Card> cards) {
-        state = new Stay(new Cards(cards));
-    }
-
     public void receiveTwoCards(PlayingCard deck) {
-        state = new Hit(new Cards(deck.getRandomCardsWithSize(FIRST_TWO_CARD)));
+        final Cards twoCards = new Cards(deck.getRandomCardsWithSize(FIRST_TWO_CARD));
+        state = new Hit(twoCards);
+        if(calculateCardScore() == BUST_MIN_SCORE){
+            state = new Blackjack(twoCards);
+        }
     }
 
     public Cards getCards() {
@@ -42,6 +46,6 @@ public abstract class Participant {
     }
 
     public int calculateCardScore() {
-        return 0;
+        return getCards().calculateScore();
     }
 }
